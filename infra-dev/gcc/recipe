@@ -1,0 +1,33 @@
+n=gcc
+v=4.8.2
+u=ftp://gcc.gnu.org/pub/gcc/releases/$n-$v/$n-$v.tar.bz2
+
+Src() {
+	# install x86_64 libraries ino /lib
+	sed -i '/m64=/s/lib64/lib/' gcc/config/i386/t-linux64
+
+	echo $v > gcc/BASE-VER
+
+	mkdir gcc-build && cd gcc-build	
+
+	$src/$n-$v/configure --prefix=$usr \
+						 --libdir=$lib \
+						 --enable-languages=c,c++,fortran \
+						 --enable-shared \
+						 --enable-threads=posix \
+						 --enable-__cxa_atexit \
+						 --disable-multilib \
+						 --with-system-zlib \
+						 --without-isl \
+						 --without-cloog
+	make
+}
+
+Pkg() {
+	cd gcc-build
+
+	make DESTDIR=$pkg install
+
+	# many packages expect this symlinks
+  	ln -s gcc $pkg/$bin/cc
+}

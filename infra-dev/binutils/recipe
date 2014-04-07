@@ -1,0 +1,23 @@
+n=binutils
+v=2.24
+u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.bz2
+
+Src() {
+	mkdir ../build && cd ../build
+
+	../$n-$v/configure --prefix=$usr \
+					   --with-lib-path=$lib \
+		    		   --enable-shared \
+		    		   --disable-multilib
+	make configure-host
+	make tooldir=$usr
+}
+
+Pkg() {
+	cd ../build
+
+	make prefix=$pkg/$usr tooldir=$pkg/$usr install
+
+	cp ../$n-$v/include/libiberty.h $pkg/$usr/include
+}
+

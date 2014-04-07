@@ -1,0 +1,12 @@
+n=mpc
+v=1.0.2
+u=http://www.multiprecision.org/mpc/download/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

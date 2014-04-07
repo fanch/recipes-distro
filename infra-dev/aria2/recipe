@@ -1,0 +1,19 @@
+n=aria2
+v=1.18.5
+u=http://downloads.sourceforge.net/$n/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--without-sqlite3 \
+				--without-libnettle \
+				--without-openssl \
+				--without-gnutls \
+				--without-libxml2 \
+				--disable-bittorrent \
+				--disable-metalink
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

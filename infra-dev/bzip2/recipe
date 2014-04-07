@@ -1,0 +1,20 @@
+n=bzip2
+v=1.0.6
+u=http://www.bzip.org/$v/$n-$v.tar.gz
+
+Src() {
+	make -f Makefile-libbz2_so
+	make
+}
+
+Pkg() {
+	make PREFIX=$pkg/$usr install
+
+	install -m755 libbz2.so.1.0.6 $pkg/$lib
+	ln -s libbz2.so.1.0.6 $pkg/$lib/libbz2.so
+	ln -s libbz2.so.1.0.6 $pkg/$lib/libbz2.so.1
+	ln -s libbz2.so.1.0.6 $pkg/$lib/libbz2.so.1.0
+
+	mkdir $pkg/$shr
+	mv $pkg/$usr/man $pkg/$shr/
+}

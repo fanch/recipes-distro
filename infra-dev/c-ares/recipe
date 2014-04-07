@@ -1,0 +1,12 @@
+n=c-ares
+v=1.10.0
+u=http://c-ares.haxx.se/download/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

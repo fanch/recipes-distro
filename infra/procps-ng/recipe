@@ -1,0 +1,18 @@
+n=procps-ng
+v=3.3.9
+u=http://sourceforge.net/projects/$n/files/Production/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--exec-prefix= \
+				--sysconfdir=$etc \
+				--libdir=$lib \
+				--bindir=$bin \
+				--sbindir=$bin \
+				--disable-kill
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

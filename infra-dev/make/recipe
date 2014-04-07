@@ -1,0 +1,13 @@
+n=make
+v=4.0
+u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr \
+				--without-guile
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

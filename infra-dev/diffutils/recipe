@@ -1,0 +1,12 @@
+n=diffutils
+v=3.3
+u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

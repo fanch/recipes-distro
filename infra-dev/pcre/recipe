@@ -1,0 +1,14 @@
+n=pcre
+v=8.35
+u=ftp://ftp.csx.cam.ac.uk/pub/software/programming/$n/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr \
+				--enable-utf \
+				--enable-unicode-properties
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

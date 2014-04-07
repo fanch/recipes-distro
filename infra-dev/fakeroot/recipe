@@ -1,0 +1,12 @@
+n=fakeroot
+v=1.20
+u=http://ftp.debian.org/debian/pool/main/f/$n/"$n"_$v.orig.tar.bz2
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}
