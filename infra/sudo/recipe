@@ -1,0 +1,20 @@
+n=sudo
+v=1.8.10p2
+u=http://www.sudo.ws/sudo/dist/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--sbindir=$bin \
+				--with-logfac=auth \
+				--with-pam \
+	  			--with-env-editor \
+	  			--with-passprompt="[sudo] password for %p: " \
+	  			--with-all-insults
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	install -Dm644 $rcs/sudo.pam $pkg/$etc/pam.d/sudo
+}

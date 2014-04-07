@@ -1,0 +1,16 @@
+n=ncurses
+v=5.9
+u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+	  			--with-shared \
+	  			--without-ada \
+	  			--without-debug \
+	  			--enable-widec
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

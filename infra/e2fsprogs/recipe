@@ -1,0 +1,29 @@
+n=e2fsprogs
+v=1.42.9
+u=http://downloads.sourceforge.net/$n/$n-$v.tar.gz
+
+Src() {
+	# Remove unnecessary init.d directory
+	sed -i '/init\.d/s|^|#|' misc/Makefile.in
+
+	./configure --prefix=$usr \
+				--with-root-prefix="" \
+				--sbindir=$bin \
+				--libdir=$lib \
+	  			--enable-elf-shlibs \
+	  			--disable-fsck \
+	  			--disable-uuidd \
+	  			--disable-libuuid \
+	  			--disable-libblkid
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install install-libs
+
+	sed -i -e 's/^AWK=.*/AWK=awk/' $pkg/$bin/compile_et
+
+	# remove references to build directory
+	sed -i -e 's#^SS_DIR=.*#SS_DIR="/usr/share/ss"#' $pkg/$bin/mk_cmds
+	sed -i -e 's#^ET_DIR=.*#ET_DIR="/usr/share/et"#' $pkg/$bin/compile_et
+}

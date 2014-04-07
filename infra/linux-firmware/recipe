@@ -1,0 +1,14 @@
+n=linux-firmware
+v=20140406
+g=git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
+p=./
+
+Src() {
+	git clone $g
+}
+
+Pkg() {
+	rm $n/{Makefile,README*,configure,GPL*,LICEN*,WHENCE}
+	mkdir -p $pkg/$lib/firmware
+	cp -a $n/* $pkg/$lib/firmware
+}

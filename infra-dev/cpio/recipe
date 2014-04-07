@@ -1,0 +1,17 @@
+n=cpio
+v=2.11
+u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.gz
+
+Src() {
+	sed -i -e '/gets is a/d' gnu/stdio.in.h
+
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	rm -rf $pkg/$usr/libexec
+}
+

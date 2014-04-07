@@ -1,0 +1,22 @@
+n=dhcpcd
+v=6.3.2
+u=http://roy.marples.name/downloads/$n/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=/etc \
+				--sbindir=$bin \
+		    	--dbdir=$var/lib/dhcpcd \
+		    	--rundir=$run
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	# Set Options in /etc/dhcpcd.conf
+	echo noipv4ll >> $pkg/$etc/dhcpcd.conf
+
+	install -Dm644 $rcs/dhcpcd_.service $pkg/$lib/systemd/system/dhcpcd@.service
+	install -Dm644 $rcs/dhcpcd.service $pkg/$lib/systemd/system/dhcpcd.service
+}

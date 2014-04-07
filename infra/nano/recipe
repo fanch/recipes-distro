@@ -1,0 +1,13 @@
+n=nano
+v=2.2.6
+u=http://www.nano-editor.org/dist/v2.2/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

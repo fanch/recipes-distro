@@ -1,0 +1,36 @@
+n=linux
+v=3.13.9
+u=http://www.kernel.org/pub/linux/kernel/v3.x/$n-$v.tar.xz
+
+Src() {
+	patch -Np1 -i $rcs/change-default-console-loglevel.patch
+
+	cp -v $rcs/config .config
+
+	# don't run depmod on 'make install'.
+	sed -i '2iexit 0' scripts/depmod.sh
+
+	make prepare
+	yes "" | make config >/dev/null
+
+	make headers_check
+	make bzImage modules
+}
+
+Pkg() {
+	mkdir -p $pkg/{lib/modules,lib/firmware,boot}
+
+	make INSTALL_HDR_PATH=$pkg/$usr headers_install
+	make INSTALL_MOD_PATH=$pkg modules_install
+
+	# remove firmware folder, build and source links
+	rm -f $pkg/lib/modules/$v/{source,build}
+	rm -rf $pkg/lib/firmware
+
+	# run depmod
+	depmod -b $pkg -F System.map $v
+
+	mv $pkg/lib $pkg/$usr
+
+	cp arch/x86/boot/bzImage $pkg/boot/vmlinuz
+}

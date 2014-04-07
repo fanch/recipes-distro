@@ -1,0 +1,36 @@
+n=Linux-PAM
+v=1.1.8
+u=http://www.linux-pam.org/library/$n-$v.tar.bz2
+
+Src() {
+	./configure --sysconfdir=$etc \
+				--sbindir=$bin \
+				--libdir=$lib \
+				--disable-db
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg SCONFIGDIR=$etc/security install
+
+	chmod +s $pkg/$bin/unix_chkpwd
+
+	install -dm755 $pkg/$etc/pam.d
+	install -m644 $rcs/system-auth $pkg/$etc/pam.d
+	install -m644 $rcs/system-login $pkg/$etc/pam.d
+	install -m644 $rcs/system-local-login $pkg/$etc/pam.d
+	install -m644 $rcs/system-remote-login $pkg/$etc/pam.d
+	install -m644 $rcs/system-services $pkg/$etc/pam.d
+	install -m644 $rcs/other $pkg/$etc/pam.d
+
+	# add the realtime permissions for audio users
+	sed -i 's|# End of file||' $pkg/$etc/security/limits.conf
+	cat >>$pkg/$etc/security/limits.conf <<_EOT
+*               -       rtprio          0
+*               -       nice            0
+@audio          -       rtprio          65
+@audio          -       nice           -10
+@audio          -       memlock         40000
+_EOT
+
+}

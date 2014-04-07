@@ -1,0 +1,15 @@
+n=libtirpc
+v=0.2.4
+u=http://downloads.sourceforge.net/$n/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconf=$etc \
+				--disable-gssapi \
+				--disable-static
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

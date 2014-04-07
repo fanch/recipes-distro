@@ -1,0 +1,28 @@
+n=systemd
+v=212
+u=http://www.freedesktop.org/software/$n/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--sbindir=$bin \
+				--localstatedir=$var \
+				--disable-introspection \
+				--disable-libcryptsetup \
+				--with-sysvinit-path= \
+				--with-sysvrcnd-path= \
+				--with-firmware-path=/usr/lib/firmware \
+				--without-python
+
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	for i in halt poweroff reboot runlevel shutdown telinit; do
+	  ln -s systemctl $pkg/$bin/$i
+	done
+
+	ln -s ../lib/systemd/systemd $pkg/$bin/init
+}
