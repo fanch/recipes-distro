@@ -1,0 +1,12 @@
+n=libffi
+v=3.0.13
+u=ftp://sourceware.org/pub/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

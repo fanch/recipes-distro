@@ -1,0 +1,12 @@
+n=libunwind
+v=1.1
+u=http://download.savannah.gnu.org/releases/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

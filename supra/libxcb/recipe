@@ -1,0 +1,16 @@
+n=libxcb
+v=1.10
+u=http://xcb.freedesktop.org/dist/$n-$v.tar.bz2
+
+Src() {
+	sed -e "s/pthread-stubs//" -i configure.ac
+	autoreconf -fi
+
+	./configure --prefix=$usr \
+				--disable-static
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

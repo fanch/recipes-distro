@@ -1,0 +1,13 @@
+n=libwebp
+v=0.4.0
+u=http://webp.googlecode.com/files/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--disable-static
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

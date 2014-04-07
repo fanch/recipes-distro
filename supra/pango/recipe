@@ -1,0 +1,14 @@
+n=pango
+v=1.36.3
+u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--with-included-modules=basic-fc
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

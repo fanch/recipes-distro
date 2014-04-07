@@ -1,0 +1,16 @@
+n=weston
+v=1.4.0
+u=http://wayland.freedesktop.org/releases/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+	  			--disable-xwayland \
+	  			--disable-x11-compositor \
+	  			--disable-xwayland-test \
+	  			--enable-demo-clients-install
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

@@ -1,0 +1,14 @@
+n=cairo
+v=1.12.16
+u=http://cairographics.org/releases/$n-$v.tar.xz
+
+Src() {
+	./autogen.sh --prefix=$usr \
+				 --disable-xcb  \
+				 --enable-glesv2
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

@@ -1,0 +1,21 @@
+n=mesa
+v=10.1.0
+u=ftp://ftp.freedesktop.org/pub/$n/10.1/MesaLib-$v.tar.bz2
+p=Mesa-$v
+
+Src() {
+	./autogen.sh --prefix=$usr \
+				 --sysconfdir=$etc \
+	  			 --enable-gles2 \
+	  			 --enable-gbm \
+	  			 --enable-shared-glapi \
+	  			 --disable-glx \
+	  			 --disable-xlib \
+	  			 --with-egl-platforms=wayland,drm \
+	  			 --with-gallium-drivers=r300,r600,radeonsi,swrast,nouveau
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

@@ -1,0 +1,16 @@
+n=libdrm
+v=2.4.52
+u=http://dri.freedesktop.org/$n/$n-$v.tar.bz2
+
+Src() {
+	sed -e "/pthread-stubs/d" -i configure.ac
+	autoreconf --force --install
+
+	./configure --prefix=$usr \
+				--enable-udev
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

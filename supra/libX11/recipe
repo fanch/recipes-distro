@@ -1,0 +1,14 @@
+n=libX11
+v=1.6.2
+u=http://xorg.freedesktop.org/releases/individual/lib/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr \
+				--disable-static \
+				--disable-xf86bigfont
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

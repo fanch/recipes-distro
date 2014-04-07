@@ -1,0 +1,12 @@
+n=wayland
+v=1.4.0
+u=http://wayland.freedesktop.org/releases/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}
