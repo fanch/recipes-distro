@@ -1,0 +1,12 @@
+n=libva
+v=1.3.0
+u=http://www.freedesktop.org/software/vaapi/releases/$n/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}
