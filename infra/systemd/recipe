@@ -20,6 +20,9 @@ Src() {
 Pkg() {
 	make DESTDIR=$pkg install
 
+	# Replace dialout/tape
+	sed -i 's#GROUP="dialout"#GROUP="uucp"#g' $pkg/$lib/udev/rules.d/*.rules
+
 	for i in halt poweroff reboot runlevel shutdown telinit; do
 	  ln -s systemctl $pkg/$bin/$i
 	done

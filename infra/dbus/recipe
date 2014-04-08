@@ -9,7 +9,7 @@ Src() {
 	  			--with-system-socket=$run/dbus/system_bus_socket \
 	  			--with-system-pid-file=$run/dbus/pid \
 	  			--with-dbus-user=dbus \
-	  			--with-systemdsystemunitdir=$lib/systemd/system/ \
+	  			--with-systemdsystemunitdir=$lib/systemd/system \
 	  			--enable-systemd \
 	  			--enable-inotify \
 	  			--disable-dnotify \
