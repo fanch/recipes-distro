@@ -11,7 +11,7 @@ Src() {
 				--disable-libcryptsetup \
 				--with-sysvinit-path= \
 				--with-sysvrcnd-path= \
-				--with-firmware-path=/usr/lib/firmware \
+				--with-firmware-path=$lib/firmware \
 				--without-python
 
 	make
