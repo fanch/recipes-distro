@@ -12,6 +12,8 @@ Src() {
 	  			--enable-gbm \
 	  			--enable-gallium-gbm \
 	  			--enable-shared-glapi \
+				--disable-glx \
+				--disable-xlib \
 	  			--disable-gallium-egl \
 	  			--with-egl-platforms=wayland,drm \
 	  			--with-gallium-drivers=r300,r600,radeonsi,swrast,nouveau
