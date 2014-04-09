@@ -5,6 +5,7 @@ u=http://www.sudo.ws/sudo/dist/$n-$v.tar.gz
 Src() {
 	./configure --prefix=$usr \
 				--sbindir=$bin \
+				--with-rundir=$run/sudo \
 				--with-logfac=auth \
 				--with-pam \
 	  			--with-env-editor \

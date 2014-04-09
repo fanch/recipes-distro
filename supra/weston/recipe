@@ -13,11 +13,4 @@ Src() {
 
 Pkg() {
 	make DESTDIR=$pkg install
-
-	chown root $pkg/$bin/weston-launch
-	chmod +s $pkg/$bin/weston-launch
-
-	install -m 755 -D $rcs/weston.sh $pkg/$etc/profile.d/weston.sh
-
-	install -m644 $rcs/weston.ini $pkg/$shr/weston/weston.ini
 }
