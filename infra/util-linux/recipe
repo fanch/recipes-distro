@@ -8,7 +8,8 @@ Src() {
 	./configure --prefix=$usr \
 				--bindir=$bin \
 				--sbindir=$bin \
-				--libdir=$lib
+				--libdir=$lib \
+				--enable-socket-activation
 	make
 }
 
