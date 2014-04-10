@@ -17,5 +17,7 @@ Src() {
 Pkg() {
 	make DESTDIR=$pkg install
 
+	rm -r $pkg/$run && mkdir -p $pkg/$lib/tmpfiles.d
+	echo "d $run/sudo 0711 root root -" > $pkg/$lib/tmpfiles.d/sudo.conf
 	install -Dm644 $rcs/sudo.pam $pkg/$etc/pam.d/sudo
 }
