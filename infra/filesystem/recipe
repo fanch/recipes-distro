@@ -34,6 +34,8 @@ Pkg() {
 	ln -s usr/lib lib64
 	ln -s lib usr/lib64
 
+	ln -s /proc/mounts etc/mtab
+
 	for f in fstab group host.conf hosts issue ld.so.conf locale.conf motd nsswitch.conf passwd profile resolv.conf securetty shells vconsole.conf; do
 			install -m644 $src/$p/${f} etc/
 	done
