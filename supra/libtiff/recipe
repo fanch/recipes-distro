@@ -1,0 +1,15 @@
+n=libtiff
+v=4.0.3
+u=ftp://ftp.remotesensing.org/$n/tiff-$v.tar.gz
+p=tiff-$v
+
+Src() {
+	sed -i '/glDrawPixels/a glFlush();' tools/tiffgt.c
+	./configure --prefix=/usr \
+				--disable-static
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}
