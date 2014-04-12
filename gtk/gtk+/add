@@ -1,3 +1,3 @@
 gtk-query-immodules-3.0 --update-cache
-gtk-update-icon-cache -q -t -f $Root/$shr/icons/hicolor
-glib-compile-schemas $Root/$shr/glib-2.0/schemas
+gtk-update-icon-cache -q -t -f $shr/icons/hicolor
+glib-compile-schemas $shr/glib-2.0/schemas
