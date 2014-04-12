@@ -1,5 +1,5 @@
 n=pkgtools
-v=0.6
+v=0.7
 u=https://github.com/selflex/$n/archive/$n-$v.tar.gz
 p=$n-$n-$v
 
