@@ -1,8 +1,8 @@
-n=pkgtools
-v=0.7
+n=distro
+v=0.8
 u=https://github.com/selflex/$n/archive/$n-$v.tar.gz
 p=$n-$n-$v
 
 Pkg() {
-	sh ./install.sh --root=$pkg
+	sh ./install.sh root=$pkg
 }
