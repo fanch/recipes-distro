@@ -1,6 +1,6 @@
 n=Mesa
-v=10.1.0
-u=ftp://ftp.freedesktop.org/pub/$n/10.1/MesaLib-$v.tar.bz2
+v=10.1.1
+u=ftp://ftp.freedesktop.org/pub/mesa/$v/MesaLib-$v.tar.bz2
 
 Src() {
 	autoreconf -vfi
