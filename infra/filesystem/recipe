@@ -10,12 +10,9 @@ Pkg() {
 			install -d -m755 ${d}
 	done
 
-	for d in bin include lib share/misc; do
+	for d in bin include lib share/misc src; do
 		install -d -m755 usr/${d}
 	done
-
-	install -d -m0775 usr/pkg
-	install -d -m0775 usr/src
 	
 	for d in $(seq 8); do
 		install -d -m755 usr/share/man/man${d}
