@@ -10,8 +10,10 @@ Src() {
             	--enable-libffi \
             	--enable-optimized \
             	--enable-shared \
-            	--disable-assertions
-	make tools-only
+            	--disable-assertions \
+            	--enable-targets=x86_64
+
+	make REQUIRES_RTTI=1
 }
 
 Pkg() {
