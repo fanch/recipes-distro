@@ -1,0 +1,12 @@
+n=shared-mime-info
+v=1.3
+u=http://freedesktop.org/~hadess/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}
