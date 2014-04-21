@@ -1,0 +1,3 @@
+fc-cache -fs
+mkfontscale $shr/fonts/TTF
+mkfontdir $shr/fonts/TTF
