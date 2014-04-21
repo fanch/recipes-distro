@@ -1,0 +1,15 @@
+n=libfontenc
+v=1.1.2
+u=http://xorg.freedesktop.org/archive/individual/lib/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+    			--localstatedir=$var \
+    			--disable-static \
+    			--with-encodingsdir=$shr/fonts/encodings 
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}
