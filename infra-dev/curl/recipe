@@ -1,0 +1,17 @@
+n=curl
+v=7.36.0
+u=http://curl.haxx.se/download/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--enable-ipv6 \
+				--disable-ldap \
+				--without-libssh2 \
+				--without-librtmp \
+				--with-ca-bundle=$etc/ssl/certs/ca-certificates.crt
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}
