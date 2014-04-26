@@ -1,0 +1,19 @@
+n=sqlite
+v=3080403
+u=http://www.sqlite.org/2014/$n-autoconf-$v.tar.gz
+p=$n-autoconf-$v
+
+Src() {
+	export CFLAGS="-DSQLITE_ENABLE_FTS3=1 \
+				   -DSQLITE_ENABLE_COLUMN_METADATA=1 \
+				   -DSQLITE_ENABLE_UNLOCK_NOTIFY \
+				   -DSQLITE_SECURE_DELETE"
+
+	./configure --prefix=$usr \
+				--disable-static
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

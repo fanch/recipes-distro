@@ -1,0 +1,13 @@
+n=p11-kit
+v=0.20.2
+u=http://p11-glue.freedesktop.org/releases/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

@@ -1,0 +1,12 @@
+n=libxslt
+v=1.1.28
+u=ftp://xmlsoft.org/libxslt/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

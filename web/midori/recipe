@@ -1,0 +1,18 @@
+n=midori
+v=0.5.8
+u=http://midori-browser.org/downloads/"$n"_"$v"_all_.tar.bz2
+p=./
+
+Src() {
+	mkdir build; cd build
+
+	cmake .. -DCMAKE_INSTALL_PREFIX=$usr \
+			 -DCMAKE_INSTALL_LIBDIR=lib \
+			 -DUSE_GTK3=1 \
+			 -DUSE_ZEITGEIST=0
+	make
+}
+
+Pkg() {
+	make -C build DESTDIR=$pkg install
+}

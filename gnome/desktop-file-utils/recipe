@@ -1,0 +1,12 @@
+n=desktop-file-utils
+v=0.22
+u=http://www.freedesktop.org/software/$n/releases/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

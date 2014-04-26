@@ -1,0 +1,18 @@
+n=gst-plugins-base
+v=1.2.4
+u=http://gstreamer.freedesktop.org/src/$n/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--localstatedir=$var \
+    			--disable-static \
+    			--enable-experimental \
+    			--with-package-name="GStreamer Base Plugins (SelflexOS)" \
+    			--with-package-origin="http://www.selflex.org"
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

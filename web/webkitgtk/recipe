@@ -1,0 +1,15 @@
+n=webkitgtk
+v=2.4.1
+u=http://webkitgtk.org/releases/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--enable-introspection \
+				--enable-wayland-target \
+				--disable-geolocation
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}
