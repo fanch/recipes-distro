@@ -7,7 +7,7 @@ Src() {
 				--sysconfdir=$etc \
 				--localstatedir=$var \
     			--disable-static \
-    			--with-package-name="GStreamer Base Plugins (SelflexOS)" \
+    			--with-package-name="GStreamer (SelflexOS)" \
     			--with-package-origin="http://www.selflex.org"
 	make
 }

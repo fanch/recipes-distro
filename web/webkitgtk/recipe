@@ -6,7 +6,11 @@ Src() {
 	./configure --prefix=$usr \
 				--enable-introspection \
 				--enable-wayland-target \
-				--disable-geolocation
+				--disable-x11-target \
+				--disable-geolocation \
+				--disable-glx \
+				--enable-egl \
+				--enable-gles2
 	make
 }
 

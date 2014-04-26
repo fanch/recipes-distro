@@ -9,7 +9,8 @@ Src() {
 	cmake .. -DCMAKE_INSTALL_PREFIX=$usr \
 			 -DCMAKE_INSTALL_LIBDIR=lib \
 			 -DUSE_GTK3=1 \
-			 -DUSE_ZEITGEIST=0
+			 -DUSE_ZEITGEIST=0 \
+			 -DHALF_BRO_INCOM_WEBKIT2=1
 	make
 }
 
