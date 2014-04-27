@@ -1,0 +1,12 @@
+n=xproto
+v=7.0.26
+u=http://xorg.freedesktop.org/releases/individual/proto/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

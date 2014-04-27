@@ -1,0 +1,12 @@
+n=gettext
+v=0.18.3.2
+u=ftp://ftp.gnu.org/pub/gnu/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}
