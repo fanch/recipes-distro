@@ -1,0 +1,2 @@
+update-desktop-database -q
+gtk-update-icon-cache -q -t -f $shr/icons/hicolor
