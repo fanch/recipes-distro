@@ -1,0 +1,12 @@
+n=libvisual
+v=0.4.0
+u=http://downloads.sourceforge.net/sourceforge/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}
