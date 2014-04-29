@@ -1,0 +1,13 @@
+n=libinput
+v=0.1.0
+u=http://freedesktop.org/software/$n/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--disable-static
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

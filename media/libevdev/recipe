@@ -1,0 +1,13 @@
+n=libevdev
+v=1.1
+u=http://freedesktop.org/software/$n/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--disable-static
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}
