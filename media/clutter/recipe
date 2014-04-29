@@ -9,8 +9,6 @@ Src() {
 				--enable-evdev-input \
     			--enable-wayland-backend \
     			--enable-wayland-compositor \
-    			--disable-x11-backend \
-    			--disable-gdk-backend \
     			--without-x
 	make
 }
