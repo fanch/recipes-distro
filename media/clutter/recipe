@@ -3,12 +3,15 @@ v=1.18.2
 u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
 
 Src() {
+	# fix --disable-x11-backend build error
+	sed -i -e 's/CLUTTER_WINDOWING_X11/GDK_WINDOWING_X11/' clutter/gdk/clutter-stage-gdk.c
 	./configure --prefix=$usr \
 				--enable-introspection \
 				--enable-egl-backend \
 				--enable-evdev-input \
     			--enable-wayland-backend \
     			--enable-wayland-compositor \
+    			--disable-x11-backend \
     			--without-x
 	make
 }
