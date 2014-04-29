@@ -4,8 +4,8 @@ u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
 
 Src() {
 	./configure --prefix=$usr \
-				--enable-gl \
-    			--enable-wayland-egl-platform=yes
+    			--enable-wayland-egl-platform=yes \
+    			--enable-wayland-egl-server=yes
 	make
 }
 
