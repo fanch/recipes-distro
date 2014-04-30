@@ -45,6 +45,4 @@ Pkg() {
 	for f in os-release gshadow shadow ; do
 		install -m600 $src/$p/${f} etc/
 	done
-
-	find . -type d -empty -exec touch {}/.keep \;
 }
