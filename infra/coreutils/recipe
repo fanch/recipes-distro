@@ -5,7 +5,7 @@ u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.xz
 Src() {
 	./configure --prefix=$usr \
 				--without-gmp \
-				--enable-no-install-program=groups,kill
+				--enable-no-install-program=groups,kill,uptime
 	make
 }
 
