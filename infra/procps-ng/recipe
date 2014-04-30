@@ -9,7 +9,8 @@ Src() {
 				--libdir=$lib \
 				--bindir=$bin \
 				--sbindir=$bin \
-				--disable-kill
+				--disable-kill \
+				--with-systemd
 	make
 }
 
