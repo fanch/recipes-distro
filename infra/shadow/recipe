@@ -31,7 +31,6 @@ Pkg() {
 	rm $pkg/$etc/pam.d/su
 
 	rm $pkg/$bin/{login,nologin,su}
-
 	find $pkg/$shr/man '(' -name su.1 -o -name login.1 -o -name nologin.8 ')' -delete
 
 	install -m644 $rcs/login.defs $pkg/$etc/login.defs
