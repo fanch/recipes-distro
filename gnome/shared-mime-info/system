@@ -1,1 +1,7 @@
-update-mime-database $shr/mime > /dev/null 2>&1
+_add() {
+	update-mime-database $shr/mime > /dev/null 2>&1
+}
+
+_upd() {
+	_add
+}

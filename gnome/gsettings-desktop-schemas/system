@@ -1,1 +1,11 @@
-glib-compile-schemas $shr/glib-2.0/schemas
+_add() {
+	glib-compile-schemas $shr/glib-2.0/schemas
+}
+
+_del() {
+	_add
+}
+
+_upd() {
+	_add
+}

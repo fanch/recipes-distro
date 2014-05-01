@@ -1,3 +1,15 @@
-gio-querymodules $lib/gio/modules
-glib-compile-schemas $shr/glib-2.0/schemas
-gtk-update-icon-cache -q -t -f $shr/icons/hicolor
+_add() {
+	gio-querymodules $lib/gio/modules
+	glib-compile-schemas $shr/glib-2.0/schemas
+	if [[ -x $bin/gtk-update-icon-cache ]]; then
+		gtk-update-icon-cache -q -t -f $shr/icons/hicolor
+	fi
+}
+
+_del() {
+	_add
+}
+
+_upd() {
+	_add
+}

@@ -1,2 +1,12 @@
-update-desktop-database -q
-gtk-update-icon-cache -q -t -f $shr/icons/hicolor
+_add() {
+	update-desktop-database -q
+	gtk-update-icon-cache -q -t -f $shr/icons/hicolor
+}
+
+_del() {
+	_add
+}
+
+_upd() {
+	_add
+}

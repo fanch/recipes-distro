@@ -1,1 +1,11 @@
-gio-querymodules $lib/gio/modules
+_add() {
+	gio-querymodules $lib/gio/modules
+}
+
+_del() {
+	_add
+}
+
+_upd() {
+	_add
+}
