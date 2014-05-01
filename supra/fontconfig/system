@@ -1,1 +1,7 @@
-fc-cache -f
+_add() {
+	fc-cache -f
+}
+
+_upd() {
+	_add
+}

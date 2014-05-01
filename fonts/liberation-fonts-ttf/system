@@ -1,3 +1,13 @@
-fc-cache -fs
-mkfontscale $shr/fonts/TTF
-mkfontdir $shr/fonts/TTF
+_add() {
+	fc-cache -fs
+	mkfontscale $shr/fonts/TTF
+	mkfontdir $shr/fonts/TTF
+}
+
+_del() {
+	_add
+}
+
+_upd() {
+	_add
+}

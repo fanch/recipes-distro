@@ -37,4 +37,3 @@ Pkg() {
 	sed -i -e 's/GROUP=1000/GROUP=100/' $pkg/$etc/default/useradd
 	sed -i -e 's/CREATE_MAIL_SPOOL=yes/CREATE_MAIL_SPOOL=no/' $pkg/$etc/default/useradd
 }
-

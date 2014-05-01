@@ -5,12 +5,30 @@ configs=(20-unhint-small-dejavu-sans-mono.conf
          57-dejavu-sans.conf
          57-dejavu-serif.conf)
 
-pushd $etc/fonts/conf.d > /dev/null
-for config in "${configs[@]}"; do
-	ln -sf ../conf.avail/${config} .
-done
-popd > /dev/null
+_add() {
+	pushd $etc/fonts/conf.d > /dev/null
+	for config in "${configs[@]}"; do
+		ln -sf ../conf.avail/${config} .
+	done
+	popd > /dev/null
 
-fc-cache -fs
-mkfontscale $shr/fonts/TTF
-mkfontdir $shr/fonts/TTF
+	fc-cache -fs
+	mkfontscale $shr/fonts/TTF
+	mkfontdir $shr/fonts/TTF
+}
+
+_del() {
+	pushd $etc/fonts/conf.d > /dev/null
+	for config in "${configs[@]}"; do
+		rm -f ${config}
+	done
+	popd > /dev/null
+
+	fc-cache -fs
+	mkfontscale $shr/fonts/TTF
+	mkfontdir $shr/fonts/TTF	
+}
+
+_upd() {
+	_del
+}
