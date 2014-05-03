@@ -1,5 +1,5 @@
 n=linux-firmware
-v=20140406
+v=20140503
 g=git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
 p=./
 

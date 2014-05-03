@@ -1,5 +1,5 @@
 n=dbus
-v=1.8.0
+v=1.8.2
 u=http://dbus.freedesktop.org/releases/$n/$n-$v.tar.gz
 
 Src() {
@@ -12,7 +12,6 @@ Src() {
 	  			--with-systemdsystemunitdir=$lib/systemd/system \
 	  			--enable-systemd \
 	  			--enable-inotify \
-	  			--disable-dnotify \
 	  			--disable-verbose-mode \
 	  			--disable-static
 	make
