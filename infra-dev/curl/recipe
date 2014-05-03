@@ -4,6 +4,7 @@ u=http://curl.haxx.se/download/$n-$v.tar.gz
 
 Src() {
 	./configure --prefix=$usr \
+				--enable-versioned-symbols \
 				--enable-ipv6 \
 				--disable-ldap \
 				--without-libssh2 \
