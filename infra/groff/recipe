@@ -1,0 +1,20 @@
+n=groff
+v=1.22.2
+u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	# add compatibility symlinks
+  	ln -s eqn $pkg/$bin/geqn
+  	ln -s tbl $pkg/$bin/gtbl
+  	ln -s soelim $pkg/$bin/zsoelim
+
+	cat $rcs/site.tmac >> $pkg/$shr/groff/site-tmac/man.local
+	cat $rcs/site.tmac >> $pkg/$shr/groff/site-tmac/mdoc.local
+}

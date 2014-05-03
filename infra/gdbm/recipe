@@ -1,0 +1,15 @@
+n=gdbm
+v=1.11
+u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.gz
+
+Src() {
+	patch -Np1 -i $rcs/gdbm-1.10-zeroheaders.patch
+
+	./configure --prefix=$usr \
+				--enable-libgdbm-compat
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}
