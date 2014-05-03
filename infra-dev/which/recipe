@@ -1,6 +1,6 @@
-n=libxslt
-v=1.1.28
-u=ftp://xmlsoft.org/libxslt/$n-$v.tar.gz
+n=which
+v=2.20
+u=http://www.xs4all.nl/~carlo17/$n/$n-$v.tar.gz
 
 Src() {
 	./configure --prefix=$usr
