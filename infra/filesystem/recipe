@@ -1,5 +1,5 @@
 n=filesystem
-v=20140408
+v=20140504
 u=https://github.com/selflex/$n/archive/$n-$v.tar.gz
 p=$n-$n-$v
 
@@ -36,11 +36,12 @@ Pkg() {
 
 	ln -s /proc/mounts etc/mtab
 
-	for f in fstab group host.conf hosts issue ld.so.conf locale.conf motd nsswitch.conf passwd profile resolv.conf securetty shells vconsole.conf; do
+	for f in fstab group host.conf hostname hosts issue ld.so.conf locale.conf motd nsswitch.conf passwd profile resolv.conf securetty shells vconsole.conf; do
 			install -m644 $src/$p/${f} etc/
 	done
 
 	install -D -m644 $src/$p/usb.conf usr/lib/modprobe.d/usb.conf
+	install -D -m755 $src/$p/locale.sh etc/profile.d/locale.sh
 
 	for f in os-release gshadow shadow ; do
 		install -m600 $src/$p/${f} etc/
