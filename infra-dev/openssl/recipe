@@ -18,4 +18,6 @@ Src() {
 
 Pkg() {
 	make INSTALL_PREFIX=$pkg MANDIR=$shr/man install
+
+	rm -f $pkg/$shr/man/man1/passwd.1
 }

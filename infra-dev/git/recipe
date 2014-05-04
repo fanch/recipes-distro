@@ -11,4 +11,6 @@ Src() {
 
 Pkg() {
 	make DESTDIR=$pkg install
+
+	rm -rf $pkg/$lib/perl5
 }
