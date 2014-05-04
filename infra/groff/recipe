@@ -17,4 +17,6 @@ Pkg() {
 
 	cat $rcs/site.tmac >> $pkg/$shr/groff/site-tmac/man.local
 	cat $rcs/site.tmac >> $pkg/$shr/groff/site-tmac/mdoc.local
+
+	rm -f $pkg/$shr/info/dir
 }

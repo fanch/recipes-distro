@@ -10,4 +10,6 @@ Src() {
 Pkg() {
 	make prefix=$pkg/$usr install
 	ln -s flex $pkg/$bin/lex
+
+	rm -f $pkg/$shr/info/dir
 }

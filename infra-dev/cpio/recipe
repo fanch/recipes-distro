@@ -13,5 +13,6 @@ Pkg() {
 	make DESTDIR=$pkg install
 
 	rm -rf $pkg/$usr/libexec
-}
 
+	rm -f $pkg/$shr/info/dir
+}

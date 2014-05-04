@@ -15,4 +15,6 @@ Pkg() {
 	rm -r $pkg/$bin
 
 	install -Dm644 $rcs/inputrc $pkg/$etc/inputrc
+
+	rm -f $pkg/$shr/info/dir
 }

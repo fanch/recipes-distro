@@ -12,4 +12,6 @@ Pkg() {
 
 	# conflict with bintuils
 	rm -f $pkg/$shr/info/standards.info
+
+	rm -f $pkg/$shr/info/dir
 }

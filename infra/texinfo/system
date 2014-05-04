@@ -1,20 +1,20 @@
 infodir=$shr/info
 filelist=(info.info info-stnd.info texinfo.info{,-1,-2,-3})
 
-add_() {
+_add() {
 	for file in $(find $infodir -type f ! -name dir); do
 		install-info $file $infodir/dir 2> /dev/null
 	done
 }
 
-del_() {
+_del() {
 	for file in ${filelist[@]}; do
-		install-info $infodir/$file.gz $infodir/dir 2> /dev/null
+		install-info --delete $infodir/$file $infodir/dir 2> /dev/null
 	done
 }
 
-upd_() {
+_upd() {
 	for file in ${filelist[@]}; do
-		install-info --delete $infodir/$file.gz $infodir/dir 2> /dev/null
+		install-info $infodir/$file $infodir/dir 2> /dev/null
 	done
 }

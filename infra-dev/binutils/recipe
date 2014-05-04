@@ -19,5 +19,6 @@ Pkg() {
 	make prefix=$pkg/$usr tooldir=$pkg/$usr install
 
 	cp ../$n-$v/include/libiberty.h $pkg/$usr/include
-}
 
+	rm -f $pkg/$shr/info/dir
+}

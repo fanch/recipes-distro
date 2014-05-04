@@ -30,4 +30,6 @@ Pkg() {
 
 	# many packages expect this symlinks
   	ln -s gcc $pkg/$bin/cc
+
+	rm -f $pkg/$shr/info/dir
 }

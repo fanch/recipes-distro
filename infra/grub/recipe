@@ -22,4 +22,6 @@ Pkg() {
 	make DESTDIR=$pkg install
 
 	install -D -m0644 $rcs/grub.cfg $pkg/boot/grub/grub.cfg
+
+	rm -f $pkg/$shr/info/dir
 }

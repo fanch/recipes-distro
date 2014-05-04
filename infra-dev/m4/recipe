@@ -9,4 +9,6 @@ Src() {
 
 Pkg() {
 	make prefix=$pkg/$usr install
+
+	rm -f $pkg/$shr/info/dir
 }
