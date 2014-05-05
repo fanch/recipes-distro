@@ -3,6 +3,8 @@ v=10.1.1
 u=ftp://ftp.freedesktop.org/pub/mesa/$v/MesaLib-$v.tar.bz2
 
 Src() {
+	patch -p1 < $rcs/0002-pipe_loader_sw-include-xlib_sw_winsys.h-only-when-HA.patch
+
 	autoreconf -vfi
 
 	./configure --prefix=$usr \

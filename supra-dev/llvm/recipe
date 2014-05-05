@@ -1,7 +1,6 @@
-n=libllvm
+n=llvm
 v=3.4
-u=http://llvm.org/releases/$v/llvm-$v.src.tar.gz
-p=llvm-$v
+u=http://llvm.org/releases/$v/$n-$v.src.tar.gz
 
 Src() {
       sed -i 's:\$(PROJ_prefix)/docs/llvm:$(PROJ_prefix)/share/doc/llvm:' \
@@ -20,5 +19,6 @@ Src() {
 }
 
 Pkg() {
-	install -Dm755 Release/lib/libLLVM-$v.so $pkg/$lib/libLLVM-$v.so
+      make DESTDIR=$pkg install
+	rm -f $pkg/$lib/libLLVM-$v.so
 }

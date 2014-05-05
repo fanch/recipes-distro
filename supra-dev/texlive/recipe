@@ -1,0 +1,39 @@
+n=texlive
+v=20130530
+u=ftp://tug.org/texlive/historic/2013/$n-$v-source.tar.xz
+p=$n-$v-source
+
+Src() {
+	mkdir texlive-build; cd texlive-build
+
+	../configure --prefix=$usr \
+				--sysconfdir=$etc \
+     			--datarootdir=$shr \
+     			--datadir=$shr \
+     			--libdir=$lib \
+     			--mandir=$shr/man \
+     			--includedir=$usr/include \
+     			--disable-native-texlive-build \
+     			--with-banner-add="/SelflexOS" \
+     			--disable-multiplatform \
+    			--disable-static \
+    			--enable-shared \
+			    --with-system-zlib \
+    			--with-system-pnglib \
+    			--with-system-ncurses \
+				--with-system-poppler \
+			    --with-system-pixman \
+    			--with-system-cairo \
+    			--with-system-harfbuzz \
+    			--with-system-graphite \
+    			--with-system-icu \
+    			--with-system-freetype2 \
+    			--without-x
+	make
+}
+
+Pkg() {
+	cd texlive-build
+
+	make DESTDIR=$pkg install
+}

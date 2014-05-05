@@ -1,10 +1,10 @@
 n=libdrm
-v=2.4.52
+v=2.4.54
 u=http://dri.freedesktop.org/$n/$n-$v.tar.bz2
 
 Src() {
 	sed -e "/pthread-stubs/d" -i configure.ac
-	autoreconf --force --install
+	autoreconf -fiv
 
 	./configure --prefix=$usr \
 				--enable-udev
