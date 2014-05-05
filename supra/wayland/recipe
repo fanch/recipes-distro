@@ -1,5 +1,5 @@
 n=wayland
-v=1.5.0
+v=1.4.92
 u=http://wayland.freedesktop.org/releases/$n-$v.tar.xz
 
 Src() {

@@ -1,0 +1,16 @@
+n=nasm
+v=2.11.01
+u=http://www.nasm.us/pub/nasm/releasebuilds/$v/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr
+	make
+	make -C doc info
+}
+
+Pkg() {
+	make INSTALLROOT=$pkg install install_rdf
+
+	install -dm755 $pkg/$shr/info
+	install -m644 doc/info/* $pkg/$shr/info	
+}

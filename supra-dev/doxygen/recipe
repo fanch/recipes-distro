@@ -1,0 +1,13 @@
+n=doxygen
+v=1.8.7
+u=http://ftp.stack.nl/pub/$n/$n-$v.src.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make INSTALL=$pkg/usr MAN1DIR=share/man/man1 install
+	make INSTALL=$pkg/usr MAN1DIR=share/man/man1 install_docs
+}
