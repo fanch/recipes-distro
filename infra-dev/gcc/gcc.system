@@ -1,5 +1,5 @@
 infodir=$shr/info
-filelist=(cpp.info cppinternals.info gcc.info gccinstall.info gccint.info gfortran.info libgomp.info libquadmath.info)
+filelist=(cpp.info cppinternals.info gcc.info gccinstall.info gccint.info gfortran.info)
 
 _add() {
 	[ -x $bin/install-info ] || return 0

@@ -1,6 +1,7 @@
-n=gcc
+n=(gcc gcc-libs)
 v=4.8.2
 u=ftp://gcc.gnu.org/pub/gcc/releases/$n-$v/$n-$v.tar.bz2
+g=(infra-dev infra)
 
 Src() {
 	# install x86_64 libraries ino /lib
@@ -23,7 +24,7 @@ Src() {
 	make
 }
 
-Pkg() {
+Pkg_gcc() {
 	cd gcc-build
 
 	make DESTDIR=$pkg install
@@ -32,4 +33,11 @@ Pkg() {
   	ln -s gcc $pkg/$bin/cc
 
 	rm -f $pkg/$shr/info/dir
+
+	mv $pkg/$lib/lib* $src
+}
+
+Pkg_gcc-libs() {
+	mkdir -p $pkg/$lib
+	mv $src/lib* $pkg/$lib
 }
