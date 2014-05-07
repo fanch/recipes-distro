@@ -4,6 +4,8 @@ u=ftp://tug.org/texlive/historic/2013/$n-$v-source.tar.xz
 p=$n-$v-source
 
 Src() {
+	patch -Np2 -i $rcs/poppler-0.26.patch
+
 	mkdir texlive-build; cd texlive-build
 
 	../configure --prefix=$usr \
@@ -14,13 +16,20 @@ Src() {
      			--mandir=$shr/man \
      			--includedir=$usr/include \
      			--disable-native-texlive-build \
-     			--with-banner-add="/SelflexOS" \
+     			--with-banner-add=" - SelflexOS" \
      			--disable-multiplatform \
+				--disable-dialog \
+				--disable-psutils \
+				--disable-t1utils \
+				--disable-bibtexu \
+				--disable-xz \
     			--disable-static \
     			--enable-shared \
+    			--with-system-libgs \
 			    --with-system-zlib \
     			--with-system-pnglib \
     			--with-system-ncurses \
+    			--with-system-xpdf \
 				--with-system-poppler \
 			    --with-system-pixman \
     			--with-system-cairo \
@@ -36,4 +45,63 @@ Pkg() {
 	cd texlive-build
 
 	make DESTDIR=$pkg install
+
+	# ArchLinux configuration
+	install -d -m755 $pkg/$etc/texmf/web2c
+	install -d -m755 $pkg/$etc/texmf/chktex
+	install -d -m755 $pkg/$etc/texmf/dvips/config
+	install -d -m755 $pkg/$etc/texmf/dvipdfmx
+	install -d -m755 $pkg/$etc/texmf/tex/generic/config
+	install -d -m755 $pkg/$etc/texmf/ttf2pk
+	install -d -m755 $pkg/$etc/fonts/conf.avail
+	install -m644 $rcs/09-texlive-fonts.conf $pkg/$etc/fonts/conf.avail/
+
+	cp -a $pkg/$shr/texmf-dist/chktex/chktexrc $pkg/$etc/texmf/chktex/
+	cp -a $pkg/$shr/texmf-dist/web2c/mktex.cnf $pkg/$etc/texmf/web2c/
+	cp -a $pkg/$shr/texmf-dist/web2c/updmap.cfg $pkg/$etc/texmf/web2c/
+	cp -a $pkg/$shr/texmf-dist/web2c/fmtutil.cnf $pkg/$etc/texmf/web2c/
+	cp -a $pkg/$shr/texmf-dist/dvips/config/config.ps $pkg/$etc/texmf/dvips/config/
+	cp -a $pkg/$shr/texmf-dist/dvipdfmx/dvipdfmx.cfg $pkg/$etc/texmf/dvipdfmx/
+	cp -a $pkg/$shr/texmf-dist/tex/generic/config/pdftexconfig.tex \
+		  $pkg/$etc/texmf/tex/generic/config/
+	cp -a $pkg/$shr/texmf-dist/tex/generic/config/language.dat \
+		  $pkg/$etc/texmf/tex/generic/config/
+	cp -a $pkg/$shr/texmf-dist/tex/generic/config/language.def \
+		  $pkg/$etc/texmf/tex/generic/config/
+	cp -a $pkg/$shr/texmf-dist/ttf2pk/ttf2pk.cfg $pkg/$etc/texmf/ttf2pk/
+
+	rm -f $pkg/$shr/texmf-dist/web2c/texmf.cnf
+	install -m644 $rcs/texmf.cnf $pkg/$etc/texmf/web2c/texmf.cnf
+	ln -sf $etc/texmf/web2c/texmf.cnf $pkg/$shr/texmf-dist/web2c/texmf.cnf
+	install -m644 $rcs/texmfcnf.lua $pkg/$shr/texmf-dist/web2c/texmfcnf.lua
+
+	mkdir -p $pkg/$shr/tlpkg/TeXLive
+	install -m644 ../utils/biber/TeXLive/*.pm $pkg/$shr/tlpkg/TeXLive
+
+	ln -s eptex $pkg/$bin/platex
+	ln -s euptex $pkg/$bin/uplatex
+	ln -s luatex $pkg/$bin/dvilualatex
+	ln -s luatex $pkg/$bin/dviluatex
+	ln -s luatex $pkg/$bin/lualatex
+	ln -s pdftex $pkg/$bin/amstex
+	ln -s pdftex $pkg/$bin/cslatex
+	ln -s pdftex $pkg/$bin/csplain
+	ln -s pdftex $pkg/$bin/eplain
+	ln -s pdftex $pkg/$bin/etex
+	ln -s pdftex $pkg/$bin/jadetex
+	ln -s pdftex $pkg/$bin/latex
+	ln -s pdftex $pkg/$bin/mex
+	ln -s pdftex $pkg/$bin/mllatex
+	ln -s pdftex $pkg/$bin/mltex
+	ln -s pdftex $pkg/$bin/pdfetex
+	ln -s pdftex $pkg/$bin/pdfcslatex
+	ln -s pdftex $pkg/$bin/pdfcsplain
+	ln -s pdftex $pkg/$bin/pdfjadetex
+	ln -s pdftex $pkg/$bin/pdflatex
+	ln -s pdftex $pkg/$bin/pdfmex
+	ln -s pdftex $pkg/$bin/pdfxmltex
+	ln -s pdftex $pkg/$bin/texsis
+	ln -s pdftex $pkg/$bin/utf8mex
+	ln -s pdftex $pkg/$bin/xmltex
+	ln -s xetex $pkg/$bin/xelatex
 }

@@ -1,0 +1,28 @@
+infodir=$shr/info
+filelist=(dvipng.info dvips.info kpathsea.info web2c.info)
+
+_add() {
+	if [[ -f $bin/mktexlsr ]]; then
+		$bin/mktexlsr
+	fi
+
+	if [[ -f $bin/fmtutil-sys ]]; then
+		$bin/fmtutil-sys --all 1>/dev/null
+	fi
+
+	[ -x $bin/install-info ] || return 0
+	for file in ${filelist[@]}; do
+		install-info $infodir/$file $infodir/dir 2> /dev/null
+	done
+}
+
+_del() {
+	[ -x $bin/install-info ] || return 0
+	for file in ${filelist[@]}; do
+		install-info --delete $infodir/$file $infodir/dir 2> /dev/null
+	done
+}
+
+_upd() {
+	_add
+}

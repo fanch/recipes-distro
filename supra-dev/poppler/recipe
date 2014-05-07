@@ -1,0 +1,35 @@
+n=(poppler poppler-glib)
+v=0.26.0
+u=http://poppler.freedesktop.org/$n-$v.tar.xz
+g=(supra-dev supra)
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+    			--localstatedir=$var \
+    			--disable-static \
+    			--enable-cairo-output \
+    			--enable-xpdf-headers \
+      			--enable-libjpeg \
+      			--enable-zlib \
+      			--enable-poppler-glib
+	make
+}
+
+Pkg_poppler() {
+	sed -e 's/^glib_subdir =.*/glib_subdir =/' -i Makefile
+
+	make DESTDIR=$pkg install
+
+	rm -f $pkg/$lib/pkgconfig/poppler-glib.pc
+}
+
+Pkg_poppler-glib() {
+	make -C poppler DESTDIR=$pkg install-libLTLIBRARIES
+	make -C glib DESTDIR=$pkg install
+
+	install -m755 -d $pkg/$lib/pkgconfig
+	install -m644 poppler-glib.pc $pkg/$lib/pkgconfig
+	rm -f $pkg/$lib/libpoppler.*
+	rm -f $pkg/$bin/poppler-glib-demo
+}
