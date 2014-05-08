@@ -37,6 +37,7 @@ Src() {
     			--with-system-graphite \
     			--with-system-icu \
     			--with-system-freetype2 \
+				--without-mf-x-toolkit \
     			--without-x
 	make
 }
