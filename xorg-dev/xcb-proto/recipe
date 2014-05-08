@@ -1,0 +1,12 @@
+n=xcb-proto
+v=1.10
+u=http://xcb.freedesktop.org/dist/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}
