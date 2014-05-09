@@ -1,6 +1,7 @@
 n=texlive
 v=20130530
-u=ftp://tug.org/texlive/historic/2013/$n-$v-source.tar.xz
+u=(ftp://tug.org/texlive/historic/2013/$n-$v-source.tar.xz
+   $n-$v-texmf.tar.xz)
 p=$n-$v-source
 
 Src() {
@@ -15,9 +16,22 @@ Src() {
      			--libdir=$lib \
      			--mandir=$shr/man \
      			--includedir=$usr/include \
+     			--disable-all-pkgs \
      			--disable-native-texlive-build \
      			--with-banner-add=" - SelflexOS" \
      			--disable-multiplatform \
+     			--enable-web2c \
+     			--enable-pdftex \
+     			--enable-makeindexk \
+     			--enable-texlive \
+     			--disable-ptex \
+     			--disable-eptex \
+     			--disable-uptex \
+     			--disable-euptex \
+     			--disable-aleph \
+     			--disable-luatex \
+     			--disable-mp \
+     			--disable-xetex \
 				--disable-dialog \
 				--disable-psutils \
 				--disable-t1utils \
@@ -37,9 +51,7 @@ Src() {
     			--with-system-graphite \
     			--with-system-icu \
     			--with-system-freetype2 \
-    			--with-xdvi-x-toolkit=xaw
-				#--without-mf-x-toolkit \
-    			#--without-x
+    			--without-x
 	make
 }
 
@@ -48,43 +60,16 @@ Pkg() {
 
 	make DESTDIR=$pkg install
 
-	# ArchLinux configuration
-	install -d -m755 $pkg/$etc/texmf/web2c
-	install -d -m755 $pkg/$etc/texmf/chktex
-	install -d -m755 $pkg/$etc/texmf/dvips/config
-	install -d -m755 $pkg/$etc/texmf/dvipdfmx
-	install -d -m755 $pkg/$etc/texmf/tex/generic/config
-	install -d -m755 $pkg/$etc/texmf/ttf2pk
+	rm -f $pkg/$shr/info/dir
+
+	# copy texmf-dist core files
+	cp -a $src/$n-$v-texmf/texmf-dist $pkg/$shr
+
 	install -d -m755 $pkg/$etc/fonts/conf.avail
 	install -m644 $rcs/09-texlive-fonts.conf $pkg/$etc/fonts/conf.avail/
 
-	cp -a $pkg/$shr/texmf-dist/chktex/chktexrc $pkg/$etc/texmf/chktex/
-	cp -a $pkg/$shr/texmf-dist/web2c/mktex.cnf $pkg/$etc/texmf/web2c/
-	cp -a $pkg/$shr/texmf-dist/web2c/updmap.cfg $pkg/$etc/texmf/web2c/
-	cp -a $pkg/$shr/texmf-dist/web2c/fmtutil.cnf $pkg/$etc/texmf/web2c/
-	cp -a $pkg/$shr/texmf-dist/dvips/config/config.ps $pkg/$etc/texmf/dvips/config/
-	cp -a $pkg/$shr/texmf-dist/dvipdfmx/dvipdfmx.cfg $pkg/$etc/texmf/dvipdfmx/
-	cp -a $pkg/$shr/texmf-dist/tex/generic/config/pdftexconfig.tex \
-		  $pkg/$etc/texmf/tex/generic/config/
-	cp -a $pkg/$shr/texmf-dist/tex/generic/config/language.dat \
-		  $pkg/$etc/texmf/tex/generic/config/
-	cp -a $pkg/$shr/texmf-dist/tex/generic/config/language.def \
-		  $pkg/$etc/texmf/tex/generic/config/
-	cp -a $pkg/$shr/texmf-dist/ttf2pk/ttf2pk.cfg $pkg/$etc/texmf/ttf2pk/
+	sed -i -e '/TEXMFROOT/s $SELFAUTOPARENT $SELFAUTODIR/share ' $pkg/$shr/texmf-dist/web2c/texmf.cnf
 
-	rm -f $pkg/$shr/texmf-dist/web2c/texmf.cnf
-	install -m644 $rcs/texmf.cnf $pkg/$etc/texmf/web2c/texmf.cnf
-	ln -sf $etc/texmf/web2c/texmf.cnf $pkg/$shr/texmf-dist/web2c/texmf.cnf
-	install -m644 $rcs/texmfcnf.lua $pkg/$shr/texmf-dist/web2c/texmfcnf.lua
-
-	mkdir -p $pkg/$shr/tlpkg/TeXLive
-	install -m644 ../utils/biber/TeXLive/*.pm $pkg/$shr/tlpkg/TeXLive
-
-	ln -s eptex $pkg/$bin/platex
-	ln -s euptex $pkg/$bin/uplatex
-	ln -s luatex $pkg/$bin/dvilualatex
-	ln -s luatex $pkg/$bin/dviluatex
-	ln -s luatex $pkg/$bin/lualatex
 	ln -s pdftex $pkg/$bin/amstex
 	ln -s pdftex $pkg/$bin/cslatex
 	ln -s pdftex $pkg/$bin/csplain
@@ -105,5 +90,4 @@ Pkg() {
 	ln -s pdftex $pkg/$bin/texsis
 	ln -s pdftex $pkg/$bin/utf8mex
 	ln -s pdftex $pkg/$bin/xmltex
-	ln -s xetex $pkg/$bin/xelatex
 }

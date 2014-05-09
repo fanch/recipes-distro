@@ -1,5 +1,5 @@
 infodir=$shr/info
-filelist=(dvipng.info dvips.info kpathsea.info web2c.info)
+filelist=(kpathsea.info web2c.info)
 
 _add() {
 	if [[ -f $bin/mktexlsr ]]; then
