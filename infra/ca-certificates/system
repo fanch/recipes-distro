@@ -2,6 +2,12 @@ _add() {
 	update-ca-certificates --fresh >/dev/null 2>&1	
 }
 
+_del() {
+	_add
+
+	[[ -s $etc/ssl/certs/ca-certificates.crt ]] || rm -f $etc/ssl/certs/ca-certificates.crt	
+}
+
 _upd() {
 	_add
 }

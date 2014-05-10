@@ -1,0 +1,12 @@
+n=isl
+v=0.12.2
+u=http://isl.gforge.inria.fr/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

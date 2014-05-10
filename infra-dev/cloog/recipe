@@ -1,0 +1,13 @@
+n=cloog
+v=0.18.1
+u=http://www.bastoul.net/$n/pages/download/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--with-isl=system
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

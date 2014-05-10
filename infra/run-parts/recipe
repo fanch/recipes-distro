@@ -1,0 +1,17 @@
+n=run-parts
+v=4.4
+u=http://ftp.de.debian.org/debian/pool/main/d/debianutils/debianutils_$v.tar.gz
+p=debianutils-$v
+
+Src() {
+	./configure --prefix=$usr
+	make run-parts
+}
+
+Pkg() {
+	install -D -m755 run-parts $pkg/$bin/run-parts
+	install -D -m644 run-parts.8 $pkg/$shr/man/man8/run-parts.8
+	for l in po4a/*/run-parts.8; do
+		install -D -m644  ${l} $pkg/$shr/man/${l:5:2}/man8/run-parts.8
+	done
+}
