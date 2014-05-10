@@ -1,0 +1,12 @@
+n=gtk-doc
+v=1.20
+u=http://ftp.gnome.org/pub/gnome/sources/$n/$v/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

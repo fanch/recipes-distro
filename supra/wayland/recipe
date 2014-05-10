@@ -3,7 +3,8 @@ v=1.4.92
 u=http://wayland.freedesktop.org/releases/$n-$v.tar.xz
 
 Src() {
-	./configure --prefix=$usr
+	./configure --prefix=$usr \
+				--disable-static
 	make
 }
 

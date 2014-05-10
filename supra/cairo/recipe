@@ -4,6 +4,7 @@ u=http://cairographics.org/releases/$n-$v.tar.xz
 
 Src() {
 	./autogen.sh --prefix=$usr \
+				 --disable-static \
 				 --disable-xcb  \
 				 --enable-glesv2
 	make
