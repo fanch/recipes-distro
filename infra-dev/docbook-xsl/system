@@ -2,32 +2,30 @@ _add() {
 	if [ ! -e $etc/xml/catalog ]; then
 		xmlcatalog --noout --create $etc/xml/catalog
 	fi
-	_NEW=`echo $1 | sed 's|\(.*\)\-.*|\1|'`
 
 	xmlcatalog --noout --add "rewriteSystem" \
-		"http://docbook.sourceforge.net/release/xsl/${_NEW}" \
-		"$shr/xml/docbook/xsl-stylesheets-${_NEW}" \
+		"http://docbook.sourceforge.net/release/xsl/$v" \
+		"$shr/xml/docbook/xsl-stylesheets-$v" \
 		$etc/xml/catalog
 
 	xmlcatalog --noout --add "rewriteURI" \
-		"http://docbook.sourceforge.net/release/xsl/${_NEW}" \
-		"$shr/xml/docbook/xsl-stylesheets-${_NEW}" \
+		"http://docbook.sourceforge.net/release/xsl/$v" \
+		"$shr/xml/docbook/xsl-stylesheets-$v" \
 		$etc/xml/catalog &&
 
 	xmlcatalog --noout --add "rewriteSystem" \
 		"http://docbook.sourceforge.net/release/xsl/current" \
-		"$shr/xml/docbook/xsl-stylesheets-${_NEW}" \
+		"$shr/xml/docbook/xsl-stylesheets-$v" \
 		$etc/xml/catalog &&
 
 	xmlcatalog --noout --add "rewriteURI" \
 		"http://docbook.sourceforge.net/release/xsl/current" \
-		"$shr/xml/docbook/xsl-stylesheets-${_NEW}" \
+		"$shr/xml/docbook/xsl-stylesheets-$v" \
 		$etc/xml/catalog
 }
 
 _del() {
-	_OLD=`echo $1 | sed 's|\(.*\)\-.*|\1|'`
-	xmlcatalog --noout --del "$shr/xml/docbook/xsl-stylesheets-${_OLD}" $etc/xml/catalog
+	xmlcatalog --noout --del "$shr/xml/docbook/xsl-stylesheets-$v" $etc/xml/catalog
 }
 
 _upd() {

@@ -19,6 +19,9 @@ Src() {
 				--with-libpam \
 				--without-selinux \
 				--enable-man
+
+	sed -i -e 's/\/sbin/\/bin/' src/Makefile
+
 	make
 }
 
@@ -36,5 +39,5 @@ Pkg() {
 	sed -i -e 's/CREATE_MAIL_SPOOL=yes/CREATE_MAIL_SPOOL=no/' $pkg/$etc/default/useradd
 
 	mkdir -p $pkg/$lib/tmpfiles.d
-	echo "f /var/log/lastlog 0644 root root" $pkg/$lib/tmpfiles.d/lastlog.conf
+	echo "f /var/log/lastlog 0644 root root" > $pkg/$lib/tmpfiles.d/lastlog.conf
 }
