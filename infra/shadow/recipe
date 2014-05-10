@@ -17,7 +17,8 @@ Src() {
 				--sbindir=$bin \
 	  			--bindir=$bin \
 				--with-libpam \
-				--without-selinux
+				--without-selinux \
+				--enable-man
 	make
 }
 
