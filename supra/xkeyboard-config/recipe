@@ -5,7 +5,8 @@ u=http://xorg.freedesktop.org/archive/individual/data/$n/$n-$v.tar.bz2
 Src() {
 	./configure --prefix=$usr \
 				--with-xkb-base=$shr/X11/xkb \
-				--enable-compat-rules=yes
+				--enable-compat-rules=yes \
+				--disable-runtime-deps
 	make
 }
 

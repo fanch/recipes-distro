@@ -1,0 +1,12 @@
+n=XML-Simple
+v=2.20
+u=ftp://ftp.cpan.org/pub/CPAN/authors/id/G/GR/GRANTM/$n-$v.tar.gz
+
+Src() {
+	perl Makefile.PL INSTALLDIRS=vendor
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}
