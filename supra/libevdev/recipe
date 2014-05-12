@@ -1,5 +1,5 @@
 n=libevdev
-v=1.1
+v=1.2
 u=http://freedesktop.org/software/$n/$n-$v.tar.xz
 
 Src() {

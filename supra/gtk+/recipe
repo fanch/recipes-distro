@@ -8,7 +8,6 @@ Src() {
 				--sysconfdir=$etc \
 				--localstatedir=$var \
 				--enable-wayland-backend \
-				--disable-x11-backend \
 				--disable-gtk2-dependency \
 				--disable-schemas-compile
 	make
