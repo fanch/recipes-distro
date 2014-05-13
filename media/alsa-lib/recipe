@@ -3,9 +3,7 @@ v=1.0.27.2
 u=ftp://ftp.alsa-project.org/pub/lib/$n-$v.tar.bz2
 
 Src() {
-	./configure --prefix=$usr \
-				--with-pythonlibs="-lpthread -lm -ldl -lpython2.7" \
-				--with-pythonincludes=-I$usr/include/python2.7
+	./configure --prefix=$usr
 	make
 }
 

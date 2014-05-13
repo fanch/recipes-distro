@@ -1,0 +1,17 @@
+n=dbus-glib
+v=0.102
+u=http://dbus.freedesktop.org/releases/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+    			--sysconfdir=$etc \
+    			--localstatedir=$var \
+				--enable-static=no \
+				--enable-bash-completion=no
+
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

@@ -1,0 +1,19 @@
+n=nspr
+v=4.10.5
+u=ftp://ftp.mozilla.org/pub/mozilla.org/$n/releases/v$v/src/$n-$v.tar.gz
+
+Src() {
+	./nspr/configure --prefix=$usr \
+    				 --libdir=/usr/lib \
+      				 --enable-optimize \
+      				 --disable-debug \
+      				 --enable-64bit
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	ln -s nspr.pc $pkg/$lib/pkgconfig/mozilla-nspr.pc
+	rm -r $pkg/$bin/{compile-et.pl,prerr.properties} $pkg/$usr/include/nspr/md
+}

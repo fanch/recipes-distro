@@ -4,6 +4,8 @@ u=http://www.sqlite.org/2014/$n-autoconf-$v.tar.gz
 p=$n-autoconf-$v
 
 Src() {
+	patch -Np1 -i $rcs/sqlite-nautilus.patch
+
 	export CFLAGS="-DSQLITE_ENABLE_FTS3=1 \
 				   -DSQLITE_ENABLE_COLUMN_METADATA=1 \
 				   -DSQLITE_ENABLE_UNLOCK_NOTIFY \

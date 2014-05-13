@@ -1,0 +1,29 @@
+n=libcanberra
+v=0.30
+p=./
+
+Src() {
+	if [ ! -d $n ]; then
+		git clone git://git.0pointer.de/$n.git
+	fi
+
+	cd $n
+	./autogen.sh
+	./configure --prefix=$usr \
+    			--sysconfdir=$etc \
+    			--localstatedir=$var \
+    			--disable-static \
+    			--with-builtin=dso \
+    			--enable-null \
+    			--disable-oss \
+				--enable-alsa \
+				--enable-gstreamer \
+				--enable-pulse \
+				--enable-gtk-doc \
+				--with-systemdsystemunitdir=$lib/systemd/system
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

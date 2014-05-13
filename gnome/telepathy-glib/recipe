@@ -1,0 +1,14 @@
+n=telepathy-glib
+v=0.24.0
+u=http://telepathy.freedesktop.org/releases/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+    			--enable-vala-bindings \
+		        --enable-static=no
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}
