@@ -1,0 +1,14 @@
+n=json-c
+v=0.11-20130402
+u=https://github.com/$n/$n/archive/$n-$v.tar.gz
+p=$n-$n-$v
+
+Src() {
+	./configure --prefix=$usr \
+				--disable-static
+	make -j1
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

@@ -1,13 +1,14 @@
-n=cogl
-v=1.18.0
+n=evolution-data-server
+v=3.13.1
 u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
 
 Src() {
+
 	./configure --prefix=$usr \
-				--enable-gles2 \
-				--enable-kms-egl-platform \
-    			--enable-wayland-egl-platform \
-    			--enable-wayland-egl-server
+				--sysconfdir=$etc \
+				--localstatedir=$var \
+				--enable-vala-bindings \
+				--disable-uoa
 	make
 }
 

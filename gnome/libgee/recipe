@@ -1,13 +1,11 @@
-n=cogl
-v=1.18.0
+n=libgee
+v=0.14.0
 u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
 
 Src() {
+
 	./configure --prefix=$usr \
-				--enable-gles2 \
-				--enable-kms-egl-platform \
-    			--enable-wayland-egl-platform \
-    			--enable-wayland-egl-server
+				--disable-static
 	make
 }
 

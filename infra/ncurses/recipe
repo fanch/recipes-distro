@@ -4,6 +4,7 @@ u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.gz
 
 Src() {
 	./configure --prefix=$usr \
+				--mandir=$shr/man \
 	  			--with-shared \
 	  			--with-normal \
 	  			--without-ada \

@@ -1,13 +1,14 @@
-n=cogl
-v=1.18.0
+n=caribou
+v=0.4.13
 u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
 
 Src() {
+
 	./configure --prefix=$usr \
-				--enable-gles2 \
-				--enable-kms-egl-platform \
-    			--enable-wayland-egl-platform \
-    			--enable-wayland-egl-server
+				--sysconfdir=$etc \
+				--disable-static \
+				--disable-gtk2-module \
+				--disable-schemas-compile
 	make
 }
 
