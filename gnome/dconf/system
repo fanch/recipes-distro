@@ -6,7 +6,7 @@ _add() {
 	fi
 }
 
-_del() {
+del_() {
 	_add
 }
 

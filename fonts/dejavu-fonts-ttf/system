@@ -17,7 +17,7 @@ _add() {
 	mkfontdir $shr/fonts/TTF
 }
 
-_del() {
+del_() {
 	pushd $etc/fonts/conf.d > /dev/null
 	for config in "${configs[@]}"; do
 		rm -f ${config}

@@ -5,7 +5,7 @@ _add() {
 	update-desktop-database -q
 }
 
-_del() {
+del_() {
 	_add
 }
 

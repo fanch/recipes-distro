@@ -24,11 +24,11 @@ _add() {
 		$etc/xml/catalog
 }
 
-_del() {
+del_() {
 	xmlcatalog --noout --del "$shr/xml/docbook/xsl-stylesheets-$v" $etc/xml/catalog
 }
 
 _upd() {
-	_del
+	del_
 	_add
 }

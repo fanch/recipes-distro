@@ -7,7 +7,7 @@ _add() {
 	done
 }
 
-_del() {
+del_() {
 	for file in ${filelist[@]}; do
 		install-info --delete $infodir/$file $infodir/dir 2> /dev/null
 	done

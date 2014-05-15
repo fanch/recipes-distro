@@ -2,7 +2,7 @@ _add() {
 	gdk-pixbuf-query-loaders --update-cache
 }
 
-_del() {
+del_() {
 	_add
 }
 

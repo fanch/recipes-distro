@@ -16,7 +16,7 @@ _add() {
 	done
 }
 
-_del() {
+del_() {
 	[ -x $bin/install-info ] || return 0
 	for file in ${filelist[@]}; do
 		install-info --delete $infodir/$file $infodir/dir 2> /dev/null
