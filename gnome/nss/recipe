@@ -1,0 +1,62 @@
+n=nss
+v=3.16.1
+u=ftp://ftp.mozilla.org/pub/security/nss/releases/NSS_${v//./_}_RTM/src/$n-$v.tar.gz
+
+Src() {
+	patch -Np3 -i $rcs/ssl-renegotiate-transitional.patch
+
+	sed -e 's/\$(MKSHLIB) -o/\$(MKSHLIB) \$(LDFLAGS) -o/' -i nss/coreconf/rules.mk
+
+	cd nss
+
+	export BUILD_OPT=1
+	export NSS_USE_SYSTEM_SQLITE=1
+	export NSS_ENABLE_ECC=1
+	export NSPR_INCLUDE_DIR="`nspr-config --includedir`"
+	export NSPR_LIB_DIR="`nspr-config --libdir`"
+	export XCFLAGS="${CFLAGS}"
+	export USE_64=1
+
+	make -j1 -C coreconf
+	make -j1 -C lib/dbm
+	make -j1
+}
+
+Pkg() {
+	install -d $pkg/$usr/{bin,include/nss,lib/pkgconfig}
+
+	NSS_VMAJOR=$(grep '#define.*NSS_VMAJOR' nss/lib/nss/nss.h | awk '{print $3}')
+	NSS_VMINOR=$(grep '#define.*NSS_VMINOR' nss/lib/nss/nss.h | awk '{print $3}')
+	NSS_VPATCH=$(grep '#define.*NSS_VPATCH' nss/lib/nss/nss.h | awk '{print $3}')
+
+	sed $rcs/nss.pc.in \
+		-e "s,%libdir%,$lib,g" \
+		-e "s,%prefix%,$usr,g" \
+		-e "s,%exec_prefix%,$bin,g" \
+		-e "s,%includedir%,$usr/include/nss,g" \
+		-e "s,%NSPR_VERSION%,${_nsprver},g" \
+		-e "s,%NSS_VERSION%,${v},g" \
+		> $pkg/$lib/pkgconfig/nss.pc
+	ln -s nss.pc $pkg/$lib/pkgconfig/mozilla-nss.pc
+
+	sed $rcs/nss-config.in \
+		-e "s,@libdir@,$lib,g" \
+		-e "s,@prefix@,$bin,g" \
+		-e "s,@exec_prefix@,$bin,g" \
+		-e "s,@includedir@,$usr/include/nss,g" \
+		-e "s,@MOD_MAJOR_VERSION@,${NSS_VMAJOR},g" \
+		-e "s,@MOD_MINOR_VERSION@,${NSS_VMINOR},g" \
+		-e "s,@MOD_PATCH_VERSION@,${NSS_VPATCH},g" \
+		> $pkg/$bin/nss-config
+	chmod 755 $pkg/$bin/nss-config
+
+	cd dist/*.OBJ/bin
+	install -t $pkg/$bin *util shlibsign signtool signver ssltap
+
+	cd ../lib
+	install -t $pkg/$lib *.so
+	install -t $pkg/$lib -m644 libcrmf.a *.chk
+
+	cd ../../public/nss
+	install -t $pkg/$usr/include/nss -m644 *.h
+}

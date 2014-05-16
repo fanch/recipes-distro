@@ -1,0 +1,12 @@
+_add() {
+	gtk-query-immodules-2.0 --update-cache
+	gtk-update-icon-cache -q -t -f $shr/icons/hicolor
+}
+
+del_() {
+	rm -f $lib/gtk-2.0/2.10.0/immodules.cache
+}
+
+_upd() {
+	_add
+}

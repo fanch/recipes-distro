@@ -1,5 +1,5 @@
 n=shadow
-v=4.2
+v=4.2.1
 u=http://pkg-shadow.alioth.debian.org/releases/$n-$v.tar.xz
 
 Src() {
@@ -17,8 +17,7 @@ Src() {
 				--sbindir=$bin \
 	  			--bindir=$bin \
 				--with-libpam \
-				--without-selinux \
-				--enable-man
+				--without-selinux
 
 	sed -i -e 's/\/sbin/\/bin/' src/Makefile
 

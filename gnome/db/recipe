@@ -1,0 +1,21 @@
+n=db
+v=5.3.28
+u=http://download.oracle.com/berkeley-db/$n-$v.tar.gz
+p=$n-$v/build_unix
+
+Src() {
+	../dist/configure --prefix=$usr \
+					  --enable-compat185 \
+    				  --enable-shared \
+    				  --enable-static \
+    				  --enable-cxx \
+    				  --enable-dbm
+
+	make LIBSO_LIBS=-lpthread
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	rm -r $pkg/$usr/docs
+}

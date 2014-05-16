@@ -1,10 +1,9 @@
-n=gnome-online-accounts
-v=3.13.1
+n=geocode-glib
+v=3.12.2
 u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
 
 Src() {
-	./configure --prefix=$usr \
-				--disable-static
+	./configure --prefix=$usr
 	make
 }
 

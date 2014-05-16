@@ -1,0 +1,17 @@
+n=gtk2
+v=2.24.23
+u=http://ftp.gnome.org/pub/gnome/sources/gtk+/${v%.*}/gtk+-$v.tar.xz
+p=gtk+-$v
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--localstatedir=$var
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+    rm $pkg/$bin/gtk-update-icon-cache
+}
