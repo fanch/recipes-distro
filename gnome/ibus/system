@@ -1,0 +1,17 @@
+_add() {
+	gtk-query-immodules-3.0 --update-cache
+	glib-compile-schemas $shr/glib-2.0/schemas
+	gtk-update-icon-cache -q -t -f $shr/icons/hicolor
+
+	dconf update
+}
+
+_del() {
+	_add
+
+	rm -f $etc/dconf/db/ibus
+}
+
+_upd() {
+	_add
+}

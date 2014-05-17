@@ -3,8 +3,6 @@ v=10.1.3
 u=ftp://ftp.freedesktop.org/pub/mesa/$v/MesaLib-$v.tar.bz2
 
 Src() {
-	patch -p1 < $rcs/0002-pipe_loader_sw-include-xlib_sw_winsys.h-only-when-HA.patch
-
 	autoreconf -vfi
 
 	./configure --prefix=$usr \
@@ -13,10 +11,8 @@ Src() {
 	  			--enable-gbm \
 	  			--enable-gallium-gbm \
 	  			--enable-shared-glapi \
-	  			--disable-glx \
-				--disable-xlib \
 	  			--disable-gallium-egl \
-	  			--with-egl-platforms=wayland,drm \
+	  			--with-egl-platforms=x11,wayland,drm \
 	  			--with-gallium-drivers=r300,r600,radeonsi,swrast,nouveau
 	make
 }

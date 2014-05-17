@@ -1,0 +1,11 @@
+_add() {
+	getent group avahi &>/dev/null || groupadd -r -g 128 avahi >/dev/null
+	getent passwd avahi &>/dev/null || useradd -r -u 128 -g avahi -d / -s $bin/false -c avahi avahi >/dev/null
+	true
+}
+
+_del() {
+	getent passwd avahi &>/dev/null && userdel avahi >/dev/null
+	getent group avahi &>/dev/null && groupdel avahi >/dev/null
+	true
+}

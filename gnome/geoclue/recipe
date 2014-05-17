@@ -1,0 +1,15 @@
+n=geoclue
+v=2.1.4
+u=http://www.freedesktop.org/software/geoclue/releases/${v:0:3}/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--localstatedir=$var \
+				--disable-static
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

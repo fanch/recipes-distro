@@ -2,6 +2,14 @@ _add() {
 	update-mime-database $shr/mime > /dev/null 2>&1
 }
 
+_del() {
+	if [ -d $shr/mime ]; then
+		rm -f $shr/mime/{globs,globs2,icons,treemagic,generic-icons,types,magic,XMLnamespaces,subclasses,aliases,mime.cache}
+		rm -rf $shr/mime/{application,audio,image,inode,message,model,multipart,text,video,x-content,x-epoc}
+		rmdir --ignore-fail-on-non-empty $shr/mime
+	fi
+}
+
 _upd() {
 	_add
 }

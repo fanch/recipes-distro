@@ -1,0 +1,31 @@
+n=NetworkManager
+v=0.9.8.10
+u=http://ftp.gnome.org/pub/gnome/sources/$n/${v:0:3}/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--localstatedir=$var \
+				--sbindir=$bin \
+				--with-crypto=nss \
+				--with-dhclient=$bin/dhclient \
+				--with-dhcpcd=$bin/dhcpcd \
+				--with-iptables=$bin/iptables \
+				--with-systemdsystemunitdir=$lib/systemd/system \
+				--with-udev-dir=$lib/udev \
+				--with-resolvconf=$bin/resolvconf \
+				--with-session-tracking=systemd \
+				--with-modem-manager-1 \
+				--disable-static \
+				--enable-more-warnings=no \
+				--disable-wimax \
+				--enable-modify-system
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	install -m644 $rcs/NetworkManager.conf $pkg/$etc/NetworkManager
+	rm -r $pkg/$var/run
+}

@@ -1,0 +1,14 @@
+n=openresolv
+v=3.5.6
+u=http://roy.marples.name/downloads/$n/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--sbindir=$bin
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

@@ -29,6 +29,7 @@ Pkg() {
 	NSS_VMINOR=$(grep '#define.*NSS_VMINOR' nss/lib/nss/nss.h | awk '{print $3}')
 	NSS_VPATCH=$(grep '#define.*NSS_VPATCH' nss/lib/nss/nss.h | awk '{print $3}')
 
+	_nsprver=4.10.5
 	sed $rcs/nss.pc.in \
 		-e "s,%libdir%,$lib,g" \
 		-e "s,%prefix%,$usr,g" \

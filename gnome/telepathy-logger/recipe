@@ -1,12 +1,13 @@
-n=gnome-shell
-v=3.13.1
-u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
+n=telepathy-logger
+v=0.8.0
+u=http://telepathy.freedesktop.org/releases/$n/$n-$v.tar.bz2
 
 Src() {
 	./configure --prefix=$usr \
 				--sysconfdir=$etc \
-				--localstatedir=$var \
+    			--enable-call \
 				--disable-static \
+				--disable-scrollkeeper \
 				--disable-schemas-compile
 	make
 }

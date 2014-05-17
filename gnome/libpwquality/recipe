@@ -1,0 +1,14 @@
+n=libpwquality
+v=1.2.3
+u=https://fedorahosted.org/releases/l/i/$n/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--localstatedir=$var
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

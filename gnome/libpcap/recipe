@@ -1,0 +1,14 @@
+n=libpcap
+v=1.5.3
+u=http://www.tcpdump.org/release/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--enable-ipv6 \
+				--with-libnl
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

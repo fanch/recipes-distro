@@ -1,0 +1,12 @@
+_add() {
+	glib-compile-schemas $shr/glib-2.0/schemas
+	gtk-update-icon-cache -q -t -f $shr/icons/hicolor
+}
+
+_del() {
+	_add
+}
+
+_upd() {
+	_add
+}

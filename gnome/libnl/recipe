@@ -1,0 +1,14 @@
+n=libnl
+v=3.2.24
+u=http://www.infradead.org/~tgr/$n/files/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--sbindir=$bin \
+				--disable-static
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

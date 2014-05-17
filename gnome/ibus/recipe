@@ -1,0 +1,17 @@
+n=ibus
+v=1.5.7
+u=https://github.com/$n/$n/releases/download/$v/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc  \
+				--disable-gconf \
+    			--enable-dconf \
+    			--enable-wayland \
+    			--disable-memconf
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

@@ -1,0 +1,19 @@
+n=colord
+v=1.2.0
+u=http://www.freedesktop.org/software/colord/releases/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--localstatedir=$var \
+				--disable-static \
+				--with-systemdsystemunitdir=$lib/systemd/system \
+				--enable-vala \
+				--disable-bash-completion \
+				--with-daemon-user=colord
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

@@ -1,0 +1,13 @@
+n=libgusb
+v=0.1.6
+u=http://people.freedesktop.org/~hughsient/releases/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--disable-static
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

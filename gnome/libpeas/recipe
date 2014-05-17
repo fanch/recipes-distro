@@ -1,14 +1,11 @@
-n=evolution-data-server
-v=3.13.1
+n=libpeas
+v=1.10.0
 u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
 
 Src() {
 	./configure --prefix=$usr \
 				--sysconfdir=$etc \
-				--localstatedir=$var \
-				--with-libdb=$usr \
-				--enable-vala-bindings \
-				--disable-uoa
+				--localstatedir=$var
 	make
 }
 
