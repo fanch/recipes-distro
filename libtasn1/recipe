@@ -10,4 +10,6 @@ make
 
 Pkg() {
 	make DESTDIR=$pkg install
+
+	rm -f $pkg/$shr/info/dir
 }

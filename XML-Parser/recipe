@@ -10,4 +10,6 @@ Src() {
 
 Pkg() {
 	make DESTDIR=$pkg install
+
+	rm -f $pkg/$lib/perl5/core_perl/perllocal.pod
 }
