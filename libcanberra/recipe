@@ -1,5 +1,6 @@
 n=libcanberra
 v=0.30
+s=gnome
 
 Src() {
 	if [ ! -d $n ]; then
