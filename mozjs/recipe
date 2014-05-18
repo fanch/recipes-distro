@@ -1,0 +1,23 @@
+n=mozjs
+v=24.2.0
+s=gnome
+u=http://ftp.mozilla.org/pub/mozilla.org/js/$n-$v.tar.bz2
+p=$n-$v/js/src
+
+Src() {
+	rm -rf mozjs-$pkg/js/src/editline
+	rm -rf mozjs-$pkg/js/src/ctypes/libffi
+
+	./configure --prefix=$usr \
+    			--with-system-nspr \
+    			--enable-system-ffi \
+     			--enable-readline \
+     			--enable-threadsafe
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+	find $pkg/$lib/pkgconfig -type f -exec chmod -x {} +
+	find $pkg/$usr/include -type f -exec chmod -x {} +
+}

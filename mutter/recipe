@@ -1,0 +1,18 @@
+n=mutter
+v=3.13.1
+s=gnome
+u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
+
+Src() {
+
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--localstatedir=$var \
+				--disable-static \
+				--disable-schemas-compile
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

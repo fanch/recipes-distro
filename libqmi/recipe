@@ -1,0 +1,15 @@
+n=libqmi
+v=1.8.0
+s=gnome
+u=http://www.freedesktop.org/software/$n/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--localstatedir=$var \
+				--disable-static
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

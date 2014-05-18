@@ -1,0 +1,13 @@
+n=dracut
+v=037
+s=infra-dev
+u=http://www.kernel.org/pub/linux/utils/boot/$n/$n-$v.tar.xz
+
+Src() {
+	make
+}
+
+Pkg() {
+	make install DESTDIR=$pkg sysconfdir=$etc systemdsystemunitdir=$lib/systemd/system
+	install -m644 $rcs/selflex.conf $pkg/$etc/dracut.conf.d/selflex.conf
+}

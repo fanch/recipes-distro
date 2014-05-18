@@ -1,0 +1,12 @@
+n=libcap
+v=2.24
+s=infra
+u=http://ftp.df.lth.se/pub/linux/libs/security/linux-privs/"$n"2/$n-$v.tar.xz
+
+Src() {
+	make SBINDIR=$bin
+}
+
+Pkg() {
+	make prefix=$usr lib=/lib SBINDIR=$pkg/$bin DESTDIR=$pkg RAISE_SETFCAP=no install
+}

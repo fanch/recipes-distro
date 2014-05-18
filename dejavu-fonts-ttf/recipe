@@ -1,0 +1,12 @@
+n=dejavu-fonts-ttf
+v=2.34
+s=fonts
+u=http://downloads.sourceforge.net/project/dejavu/dejavu/$v/$n-$v.tar.bz2
+
+Pkg() {
+	install -dm755 $pkg/$etc/fonts/conf.avail
+	install -dm755 $pkg/$shr/fonts/TTF
+
+	install -m644 ttf/*.ttf $pkg/$shr/fonts/TTF/
+	install -m644 fontconfig/*.conf $pkg/$etc/fonts/conf.avail/	
+}

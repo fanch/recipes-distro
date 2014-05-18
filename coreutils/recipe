@@ -1,0 +1,17 @@
+n=coreutils
+v=8.22
+s=infra
+u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--without-gmp \
+				--enable-no-install-program=groups,kill,uptime
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	rm -f $pkg/$shr/info/dir
+}

@@ -1,0 +1,16 @@
+n=attr
+v=2.4.47
+s=infra
+u=http://download.savannah.gnu.org/releases/$n/$n-$v.src.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DIST_ROOT=$pkg install install-lib install-dev
+
+	# remove conflicting manpages
+	rm -rf $pkg/$shr/man/man2
+}

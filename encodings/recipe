@@ -1,0 +1,12 @@
+n=encodings
+v=1.0.4
+s=fonts
+u=http://xorg.freedesktop.org/archive/individual/font/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

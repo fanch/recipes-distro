@@ -1,0 +1,13 @@
+n=libexif
+v=0.6.21
+s=gnome
+u=http://downloads.sf.net/sourceforge/$n/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

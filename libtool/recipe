@@ -1,0 +1,15 @@
+n=libtool
+v=2.4.2
+s=infra-dev
+u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make prefix=$pkg/$usr install
+
+	rm -f $pkg/$shr/info/dir
+}

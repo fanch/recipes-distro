@@ -1,0 +1,17 @@
+n=libdrm
+v=2.4.54
+s=supra
+u=http://dri.freedesktop.org/$n/$n-$v.tar.bz2
+
+Src() {
+	sed -e "/pthread-stubs/d" -i configure.ac
+	autoreconf -fiv
+
+	./configure --prefix=$usr \
+				--enable-udev
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

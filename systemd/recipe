@@ -1,0 +1,36 @@
+n=systemd
+v=212
+s=infra
+u=http://www.freedesktop.org/software/$n/$n-$v.tar.xz
+
+Src() {
+	patch -Np1 -i $rcs/systemd-212-compat-1.patch
+
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--sbindir=$bin \
+				--localstatedir=$var \
+				--enable-introspection \
+				--with-sysvinit-path= \
+				--with-sysvrcnd-path= \
+				--with-firmware-path=$lib/firmware \
+				--without-python
+
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	# Replace dialout with uucpsu
+	sed -i 's#GROUP="dialout"#GROUP="uucp"#g' $pkg/$lib/udev/rules.d/*.rules
+
+	# fix pam file
+	sed 's|system-auth|system-login|g' -i $pkg/$etc/pam.d/systemd-user
+
+	for i in halt poweroff reboot runlevel shutdown telinit; do
+	  ln -s systemctl $pkg/$bin/$i
+	done
+
+	ln -s ../lib/systemd/systemd $pkg/$bin/init
+}

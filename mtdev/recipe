@@ -1,0 +1,13 @@
+n=mtdev
+v=1.1.5
+s=supra
+u=http://bitmath.org/code/mtdev/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

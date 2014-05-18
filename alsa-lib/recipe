@@ -1,0 +1,13 @@
+n=alsa-lib
+v=1.0.27.2
+s=media
+u=ftp://ftp.alsa-project.org/pub/lib/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

@@ -1,0 +1,15 @@
+n=gettext
+v=0.18.3.2
+s=infra-dev
+u=ftp://ftp.gnu.org/pub/gnu/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	rm -f $pkg/$shr/info/dir
+}

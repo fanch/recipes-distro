@@ -1,0 +1,28 @@
+n=gdm
+v=3.12.2
+s=gnome
+u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
+
+Src() {
+	patch -Np1 -i $rcs/0001-Add-Arch-Linux-PAM-config-files.patch
+	AUTOPOINT='intltoolize --automake -c' autoreconf -fi
+
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--localstatedir=$var \
+				--sbindir=$bin \
+				--disable-static \
+				--disable-schemas-compile \
+				--without-tcp-wrappers \
+				--without-console-kit \
+				--with-systemd \
+				--with-default-pam-config=arch
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	chmod 711 $pkg/$var/log/gdm
+	rm -r $pkg/$var/run
+}

@@ -1,0 +1,17 @@
+n=vte
+v=0.37.0
+s=gnome
+u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--localstatedir=$var \
+				--disable-static \
+				--enable-introspection
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

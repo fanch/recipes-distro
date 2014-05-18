@@ -1,0 +1,16 @@
+n=check
+v=0.9.12
+s=infra-dev
+u=http://downloads.sourceforge.net/sourceforge/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--disable-static
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	rm -f $pkg/$shr/info/dir
+}

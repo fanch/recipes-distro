@@ -1,0 +1,18 @@
+n=ModemManager
+v=1.2.0
+s=gnome
+u=http://www.freedesktop.org/software/$n/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--localstatedir=$var \
+				--disable-static \
+				--sbindir=$bin \
+				--with-udev-base-dir=$lib/udev \
+				--with-polkit=permissive
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

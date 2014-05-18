@@ -1,0 +1,15 @@
+n=libdaemon
+v=0.14
+s=gnome
+u=http://0pointer.de/lennart/projects/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--localstatedir=$var \
+				--disable-lynx
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

@@ -1,0 +1,14 @@
+n=libXtst
+v=1.2.2
+s=x11
+u=http://xorg.freedesktop.org/releases/individual/lib/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr \
+				--disable-static
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

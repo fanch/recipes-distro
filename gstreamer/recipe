@@ -1,0 +1,18 @@
+n=gstreamer
+v=1.2.4
+s=media
+u=http://gstreamer.freedesktop.org/src/$n/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--localstatedir=$var \
+    			--disable-static \
+    			--with-package-name="GStreamer (SelflexOS)" \
+    			--with-package-origin="http://www.selflex.org"
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

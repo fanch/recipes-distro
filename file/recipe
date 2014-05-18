@@ -1,0 +1,14 @@
+n=file
+v=5.18
+s=infra
+u=ftp://ftp.astron.com/pub/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--datadir=$shr/file
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

@@ -1,0 +1,26 @@
+n=libproxy
+v=0.4.11
+s=gnome
+u=http://libproxy.googlecode.com/files/$n-$v.tar.gz
+p=./
+
+Src() {
+  mkdir build; cd build
+  cmake ../$n-$v \
+    -DCMAKE_INSTALL_PREFIX=$usr \
+    -DCMAKE_SKIP_RPATH=ON \
+    -DPERL_VENDORINSTALL=yes \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_CXX_FLAGS="$CXXFLAGS" \
+    -DCMAKE_C_FLAGS="$CFLAGS" \
+    -DWITH_WEBKIT=OFF \
+    -DWITH_KDE4=OFF \
+    -DWITH_GNOME=OFF \
+    -DWITH_WEBKIT3=ON
+	make
+}
+
+Pkg() {
+	cd build
+	make DESTDIR=$pkg install
+}

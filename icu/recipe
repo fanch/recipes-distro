@@ -1,0 +1,17 @@
+n=icu
+v=53.1
+s=supra
+u=http://download.icu-project.org/files/${n}4c/$v/${n}4c-${v//./_}-src.tgz
+p=$n/source
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--mandir=$shr/man \
+				--sbindir=$bin
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

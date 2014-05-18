@@ -1,0 +1,14 @@
+n=freetype
+v=2.5.3
+s=supra
+u=http://downloads.sourceforge.net/$n/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr \
+				--disable-static
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

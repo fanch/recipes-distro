@@ -1,0 +1,17 @@
+n=glib
+v=2.40.0
+s=infra
+u=http://ftp.gnome.org/pub/GNOME/sources/$n/${v:0:4}/$n-$v.tar.xz
+
+Src() {
+	patch -Rp1 -i $rcs/revert-warn-glib-compile-schemas.patch
+
+	./configure --prefix=$usr \
+				--libdir=$lib \
+				--sysconfdir=$etc 
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

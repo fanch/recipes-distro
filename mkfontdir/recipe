@@ -1,0 +1,12 @@
+n=mkfontdir
+v=1.0.7
+s=fonts
+u=http://xorg.freedesktop.org/archive/individual/app/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

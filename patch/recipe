@@ -1,0 +1,13 @@
+n=patch
+v=2.7.1
+s=infra-dev
+u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

@@ -1,0 +1,13 @@
+n=xz
+v=5.0.5
+s=infra
+u=http://tukaani.org/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

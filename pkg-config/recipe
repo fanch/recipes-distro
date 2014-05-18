@@ -1,0 +1,13 @@
+n=pkg-config
+v=0.28
+s=infra-dev
+u=http://pkgconfig.freedesktop.org/releases/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

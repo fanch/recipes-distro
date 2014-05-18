@@ -1,0 +1,16 @@
+n=gcr
+v=3.12.0
+s=gnome
+u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--disable-update-mime \
+    			--disable-schemas-compile \
+				--disable-static
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

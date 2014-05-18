@@ -1,0 +1,19 @@
+n=ruby
+v=2.1.2
+s=supra-dev
+u=http://cache.ruby-lang.org/pub/$n/${v:0:3}/$n-$v.tar.bz2
+
+Src() {
+
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--localstatedir=$var \
+				--sharedstatedir=$var/lib \
+				--enable-shared \
+				--with-dbm-type=gdbm_compat
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

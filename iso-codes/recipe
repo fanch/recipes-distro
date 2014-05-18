@@ -1,0 +1,13 @@
+n=iso-codes
+v=3.52
+s=gnome
+u=http://pkg-isocodes.alioth.debian.org/downloads/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg pkgconfigdir=$lib/pkgconfig install
+}

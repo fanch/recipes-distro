@@ -1,0 +1,18 @@
+n=iana-etc
+v=2.30
+s=infra
+u=http://sethwklein.net/$n-$v.tar.bz2
+
+Src() {
+	patch -Np1 -i $rcs/newer.patch
+
+	make get
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	install -Dm644 port-numbers.iana $pkg/$shr/iana-etc/port-numbers.iana
+	install -Dm644 protocol-numbers.iana $pkg/$shr/iana-etc/protocol-numbers.iana
+}

@@ -1,0 +1,13 @@
+n=libunistring
+v=0.9.3
+s=supra-dev
+u=ftp://ftp.gnu.org/pub/gnu/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

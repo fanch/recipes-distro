@@ -1,0 +1,14 @@
+n=libvorbis
+v=1.3.4
+s=media
+u=http://downloads.xiph.org/releases/vorbis/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--disable-static
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

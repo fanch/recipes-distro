@@ -1,0 +1,14 @@
+n=libsndfile
+v=1.0.25
+s=media
+u=http://www.mega-nerd.com/$n/files/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--disable-sqlite
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

@@ -1,0 +1,15 @@
+n=bison
+v=3.0.2
+s=infra-dev
+u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	rm -f $pkg/$shr/info/dir
+}

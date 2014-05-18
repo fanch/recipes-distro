@@ -1,0 +1,13 @@
+n=py2cairo
+v=1.10.0
+s=gnome
+u=http://cairographics.org/releases/$n-$v.tar.bz2
+
+Src() {
+	./waf configure --prefix=$usr
+	./waf build
+}
+
+Pkg() {
+	./waf install --destdir=$pkg
+}

@@ -1,0 +1,19 @@
+n=cmake
+v=2.8.12.2
+s=supra-dev
+u=http://www.cmake.org/files/v2.8/$n-$v.tar.gz
+
+Src() {
+	patch -Np1 < $rcs/findfreetype.patch
+
+	./bootstrap --prefix=$usr \
+				--mandir=/share/man \
+    			--docdir=/share/doc/cmake \
+    			--system-libs \
+			    --parallel=$($bin/getconf _NPROCESSORS_ONLN)
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

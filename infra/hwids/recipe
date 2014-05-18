@@ -1,9 +1,0 @@
-n=hwids
-v=20130915
-u=https://github.com/gentoo/$n/archive/$n-$v.tar.gz
-p=$n-$n-$v
-
-Pkg() {
-	mkdir -p $pkg/$shr/hwdata
-	cp pci.ids usb.ids $pkg/$shr/hwdata
-}

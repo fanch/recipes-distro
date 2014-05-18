@@ -1,0 +1,16 @@
+n=gnutls
+v=3.3.2
+s=supra
+u=ftp://ftp.gnutls.org/gcrypt/$n/v3.3/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--with-zlib \
+				--disable-static \
+				--disable-guile
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

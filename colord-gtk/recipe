@@ -1,0 +1,17 @@
+n=colord-gtk
+v=0.1.25
+s=gnome
+u=http://www.freedesktop.org/software/colord/releases/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--localstatedir=$var \
+				--disable-static \
+				--enable-vala
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

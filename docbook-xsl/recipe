@@ -1,0 +1,19 @@
+n=docbook-xsl
+v=1.78.1
+s=infra-dev
+u=http://downloads.sourceforge.net/docbook/$n-$v.tar.bz2
+
+Pkg() {
+	_pkgroot=$pkg/$shr/xml/docbook/xsl-stylesheets-$v
+
+	install -dm755 ${_pkgroot}
+	install -m644 VERSION VERSION.xsl ${_pkgroot}
+
+	for fn in assembly common eclipse epub epub3 fo highlighting html htmlhelp javahelp lib \
+			manpages params profiling roundtrip template website xhtml xhtml-1_1 xhtml5; do
+		install -dm755 ${_pkgroot}/${fn}
+		install -m644 ${fn}/*.{xml,xsl,dtd,ent} ${_pkgroot}/${fn} || true  # ignore missing files
+	done
+
+	install -dm755 $pkg/$etc/xml
+}

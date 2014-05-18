@@ -1,0 +1,17 @@
+n=tzdata
+v=2014b
+s=infra
+u=http://www.iana.org/time-zones/repository/releases/$n$v.tar.gz
+p=./
+
+Pkg() {
+	timezones=('africa' 'antarctica' 'asia' 'australasia' 'europe'
+		   'northamerica' 'southamerica' 'pacificnew' 'etcetera'
+		   'backward' 'systemv' 'factory')
+
+	zic -y ./yearistype -d $pkg/$shr/zoneinfo ${timezones[@]}
+	zic -y ./yearistype -d $pkg/$shr/zoneinfo/posix ${timezones[@]}
+	zic -y ./yearistype -d $pkg/$shr/zoneinfo/right -L leapseconds ${timezones[@]}
+	zic -y ./yearistype -d $pkg/$shr/zoneinfo -p America/New_York
+	install -m444 -t $pkg/$shr/zoneinfo iso3166.tab zone.tab
+}

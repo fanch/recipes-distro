@@ -1,0 +1,16 @@
+n=flex
+v=2.5.39
+s=infra-dev
+u=http://downloads.sourceforge.net/sourceforge/$n/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make prefix=$pkg/$usr install
+	ln -s flex $pkg/$bin/lex
+
+	rm -f $pkg/$shr/info/dir
+}

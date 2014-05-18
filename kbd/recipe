@@ -1,0 +1,13 @@
+n=kbd
+v=2.0.1
+s=infra
+u=ftp://ftp.altlinux.org/pub/people/legion/kbd/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

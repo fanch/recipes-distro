@@ -1,0 +1,18 @@
+n=telepathy-logger
+v=0.8.0
+s=gnome
+u=http://telepathy.freedesktop.org/releases/$n/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+    			--enable-call \
+				--disable-static \
+				--disable-scrollkeeper \
+				--disable-schemas-compile
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

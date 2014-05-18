@@ -1,0 +1,21 @@
+n=readline
+v=6.3
+s=infra
+u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.gz
+
+Src() {
+	CFLAGS="$CFLAGS -fPIC"
+
+	./configure --prefix=$usr
+	make SHLIB_LIBS=-lncurses
+}
+
+Pkg() {
+	make prefix=$pkg/$usr install
+
+	rm -r $pkg/$bin
+
+	install -Dm644 $rcs/inputrc $pkg/$etc/inputrc
+
+	rm -f $pkg/$shr/info/dir
+}

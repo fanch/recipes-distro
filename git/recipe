@@ -1,0 +1,17 @@
+n=git
+v=1.9.2
+s=infra-dev
+u=https://www.kernel.org/pub/software/scm/$n/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--with-libpcre \
+				--with-gitconfig=$etc/gitconfig
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	rm -rf $pkg/$lib/perl5
+}

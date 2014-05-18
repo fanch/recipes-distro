@@ -1,0 +1,29 @@
+n=gnome-control-center
+v=3.13.1
+s=gnome
+u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
+
+Src() {
+	patch -p1 -i $rcs/gnome-control-center-3.12.1-optional.patch
+	autoreconf -fi
+	sed -i -e 's/GNOME_DEBUG_CHECK//' configure
+	sed -i -e 's/GNOME_COMPILE_WARNINGS(maximum)//' configure
+
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--localstatedir=$var \
+				--disable-static \
+				--disable-silent-rules \
+				--disable-cups \
+				--disable-wacom \
+				--disable-kerberos
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	# Fix a warning
+	chown 102:0 $pkg/$shr/polkit-1/rules.d
+	chmod 700 $pkg/$shr/polkit-1/rules.d
+}

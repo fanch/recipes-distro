@@ -1,0 +1,18 @@
+n=libtheora
+v=1.1.1
+s=media
+u=http://downloads.xiph.org/releases/theora/$n-$v.tar.bz2
+
+Src() {
+	sed -i 's/png_\(sizeof\)/\1/g' examples/png2theora.c
+	export LDFLAGS="$LDFLAGS -lm"
+
+	./configure --prefix=$usr \
+				--enable-shared \
+				--disable-static
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

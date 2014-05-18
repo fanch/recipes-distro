@@ -1,0 +1,14 @@
+n=libvdpau
+v=0.7
+s=supra
+u=http://people.freedesktop.org/~aplattner/vdpau/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

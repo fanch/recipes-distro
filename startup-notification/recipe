@@ -1,0 +1,18 @@
+n=startup-notification
+v=0.12
+s=supra
+u=http://www.freedesktop.org/software/$n/releases/$n-$v.tar.gz
+
+Src() {
+	sed -i -e '/AC_PATH_XTRA/d' configure.in
+	autoreconf -fi
+
+	./configure --prefix=$usr \
+    			--sysconfdir=$etc \
+    			--localstatedir=$var
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

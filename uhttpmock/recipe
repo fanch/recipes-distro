@@ -1,0 +1,13 @@
+n=uhttpmock
+v=0.2.0
+s=gnome-dev
+u=http://tecnocode.co.uk/downloads/uhttpmock/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

@@ -1,0 +1,30 @@
+n=device-mapper
+v=2.02.105
+s=infra
+u=ftp://sources.redhat.com/pub/lvm2/LVM2.$v.tgz
+p=LVM2.$v
+
+Src() {
+	# readline 6.3
+	sed -i s/CPPFunction/rl_completion_func_t/ tools/lvm.c
+
+	./configure --prefix=$usr \
+				--with-usrlibdir=$lib \
+				--libdir=$lib \
+				--with-udev-prefix=$usr \
+  				--sbindir=$bin \
+  				--enable-pkgconfig \
+  				--enable-dmeventd \
+  				--enable-cmdlib
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install_device-mapper
+
+	# Install dmeventd socket and service
+	install -D -m644 $rcs/dmeventd.service $pkg/$lib/systemd/system/dmeventd.service
+	install -D -m644 $rcs/dmeventd.socket $pkg/$lib/systemd/system/dmeventd.socket
+	install -d -m755 $pkg/$lib/systemd/system/sockets.target.wants
+	ln -sf $lib/systemd/system/dmeventd.socket $pkg/$lib/systemd/system/sockets.target.wants/dmeventd.socket
+}

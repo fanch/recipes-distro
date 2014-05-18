@@ -1,0 +1,14 @@
+n=itstool
+v=2.0.2
+s=supra-dev
+u=http://files.itstool.org/itstool/$n-$v.tar.bz2
+
+Src() {
+	autoreconf -fi
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

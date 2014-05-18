@@ -1,0 +1,23 @@
+n=polkit
+v=0.112
+s=gnome
+u=http://www.freedesktop.org/software/$n/releases/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+    			--sysconfdir=$etc \
+    			--localstatedir=$var \
+    			--enable-libsystemd-login=yes \
+    			--disable-static \
+				--enable-gtk-doc
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	chown 102 $pkg/$etc/polkit-1/rules.d
+	chown 102 $pkg/$shr/polkit-1/rules.d
+
+	install -m644 $rcs/polkit.pam $pkg/$etc/pam.d/polkit-1
+}

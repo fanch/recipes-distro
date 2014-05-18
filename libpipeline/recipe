@@ -1,0 +1,12 @@
+n=libpipeline
+v=1.3.0
+s=infra
+u=http://download-mirror.savannah.gnu.org/releases/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

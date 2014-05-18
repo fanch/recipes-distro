@@ -1,0 +1,15 @@
+n=libarchive
+v=3.1.2
+s=supra
+u=http://libarchive.org/downloads/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--disable-static \
+				--without-xml2
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

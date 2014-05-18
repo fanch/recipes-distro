@@ -1,0 +1,16 @@
+n=gperf
+v=3.0.4
+s=infra-dev
+u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--docdir=$shr/gperf/doc
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	rm -f $pkg/$shr/info/dir
+}

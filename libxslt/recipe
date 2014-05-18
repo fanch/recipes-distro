@@ -1,0 +1,14 @@
+n=libxslt
+v=1.1.28
+s=infra-dev
+u=ftp://xmlsoft.org/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--disable-static
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

@@ -1,0 +1,16 @@
+n=gmp
+v=6.0.0
+s=infra-dev
+u=ftp://ftp.gmplib.org/pub/$n-$v/$n-${v}a.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--enable-cxx
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	rm -f $pkg/$shr/info/dir
+}

@@ -1,0 +1,15 @@
+n=gmime
+v=2.6.20
+s=gnome
+u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--enable-smime \
+				--disable-static
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

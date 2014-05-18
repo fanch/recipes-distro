@@ -1,0 +1,21 @@
+n=Python3
+v=3.4.0
+s=supra-dev
+u=http://www.python.org/ftp/python/$v/Python-$v.tar.xz
+p=Python-$v
+
+Src() {
+	./configure --prefix=$usr \
+				--enable-shared \
+				--enable-ipv6 \
+				--with-system-expat \
+				--with-system-ffi   \
+				--with-system-libmpdec \
+				--with-dbmliborder=gdbm:ndbm \
+				--without-ensurepip
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

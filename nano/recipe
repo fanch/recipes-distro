@@ -1,0 +1,16 @@
+n=nano
+v=2.2.6
+s=infra
+u=http://www.nano-editor.org/dist/v2.2/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	rm -f $pkg/$shr/info/dir
+}

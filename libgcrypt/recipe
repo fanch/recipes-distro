@@ -1,0 +1,16 @@
+n=libgcrypt
+v=1.6.1
+s=infra
+u=ftp://ftp.gnupg.org/gcrypt/$n/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr \
+				--sbindir=$bin
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	rm -f $pkg/$shr/info/dir
+}

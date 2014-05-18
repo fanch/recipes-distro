@@ -1,0 +1,17 @@
+n=mpfr
+v=3.1.2
+s=infra-dev
+u=http://www.mpfr.org/mpfr-current/$n-$v.tar.xz
+
+Src() {
+	./configure --prefix=$usr \
+				--enable-thread-safe \
+				--enable-shared
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	rm -f $pkg/$shr/info/dir
+}

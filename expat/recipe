@@ -1,0 +1,13 @@
+n=expat
+v=2.1.0
+s=infra
+u=http://downloads.sourceforge.net/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

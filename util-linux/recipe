@@ -1,0 +1,23 @@
+n=util-linux
+v=2.24.2
+s=infra
+u=ftp://ftp.kernel.org/pub/linux/utils/$n/v2.24/$n-$v.tar.xz
+
+Src() {
+	sed -i -e 's/\/sbin/\/bin/' configure
+
+	./configure --prefix=$usr \
+				--bindir=$bin \
+				--sbindir=$bin \
+				--libdir=$lib \
+				--enable-socket-activation
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	install -dm755 $pkg/$etc/pam.d
+	install -m644 $rcs/login $pkg/$etc/pam.d
+	install -m644 $rcs/su $pkg/$etc/pam.d
+}

@@ -1,0 +1,15 @@
+n=libpng
+v=1.6.10
+s=supra
+u=http://downloads.sourceforge.net/$n/$n-$v.tar.xz
+
+Src() {
+	patch -Np1 -i $rcs/libpng-$v-apng.patch
+
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

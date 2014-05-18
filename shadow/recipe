@@ -1,0 +1,43 @@
+n=shadow
+v=4.2.1
+s=infra
+u=http://pkg-shadow.alioth.debian.org/releases/$n-$v.tar.xz
+
+Src() {
+	# link to glibc's crypt
+	LDFLAGS+=" -lcrypt"
+
+	# need to offer these upstream
+	patch -Np1 <$rcs/xstrdup.patch
+	patch -Np1 <$rcs/shadow-strncpy-usage.patch
+
+	autoreconf -fi
+
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--sbindir=$bin \
+	  			--bindir=$bin \
+				--with-libpam \
+				--without-selinux
+
+	sed -i -e 's/\/sbin/\/bin/' src/Makefile
+
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	rm $pkg/$etc/pam.d/login
+	rm $pkg/$etc/pam.d/su
+
+	rm $pkg/$bin/{login,nologin,su}
+	find $pkg/$shr/man '(' -name su.1 -o -name login.1 -o -name nologin.8 ')' -delete
+
+	install -m644 $rcs/login.defs $pkg/$etc/login.defs
+	sed -i -e 's/GROUP=1000/GROUP=100/' $pkg/$etc/default/useradd
+	sed -i -e 's/CREATE_MAIL_SPOOL=yes/CREATE_MAIL_SPOOL=no/' $pkg/$etc/default/useradd
+
+	mkdir -p $pkg/$lib/tmpfiles.d
+	echo "f /var/log/lastlog 0644 root root" > $pkg/$lib/tmpfiles.d/lastlog.conf
+}

@@ -1,0 +1,94 @@
+n=texlive
+v=20130530
+s=supra-dev
+u=(ftp://tug.org/texlive/historic/2013/$n-$v-source.tar.xz
+   $n-$v-texmf.tar.xz)
+p=$n-$v-source
+
+Src() {
+	patch -Np2 -i $rcs/poppler-0.26.patch
+
+	mkdir texlive-build; cd texlive-build
+
+	../configure --prefix=$usr \
+				--sysconfdir=$etc \
+     			--datarootdir=$shr \
+     			--datadir=$shr \
+     			--libdir=$lib \
+     			--mandir=$shr/man \
+     			--includedir=$usr/include \
+     			--disable-all-pkgs \
+     			--disable-native-texlive-build \
+     			--with-banner-add=" - SelflexOS" \
+     			--disable-multiplatform \
+     			--enable-web2c \
+     			--enable-pdftex \
+     			--enable-makeindexk \
+     			--enable-texlive \
+     			--disable-ptex \
+     			--disable-eptex \
+     			--disable-uptex \
+     			--disable-euptex \
+     			--disable-aleph \
+     			--disable-luatex \
+     			--disable-mp \
+     			--disable-xetex \
+				--disable-dialog \
+				--disable-psutils \
+				--disable-t1utils \
+				--disable-bibtexu \
+				--disable-xz \
+    			--disable-static \
+    			--enable-shared \
+    			--with-system-libgs \
+			    --with-system-zlib \
+    			--with-system-pnglib \
+    			--with-system-ncurses \
+    			--with-system-xpdf \
+				--with-system-poppler \
+			    --with-system-pixman \
+    			--with-system-cairo \
+    			--with-system-harfbuzz \
+    			--with-system-graphite \
+    			--with-system-icu \
+    			--with-system-freetype2 \
+    			--without-x
+	make
+}
+
+Pkg() {
+	cd texlive-build
+
+	make DESTDIR=$pkg install
+
+	rm -f $pkg/$shr/info/dir
+
+	# copy texmf-dist core files
+	cp -a $src/$n-$v-texmf/texmf-dist $pkg/$shr
+
+	install -d -m755 $pkg/$etc/fonts/conf.avail
+	install -m644 $rcs/09-texlive-fonts.conf $pkg/$etc/fonts/conf.avail/
+
+	sed -i -e '/TEXMFROOT/s $SELFAUTOPARENT $SELFAUTODIR/share ' $pkg/$shr/texmf-dist/web2c/texmf.cnf
+
+	ln -s pdftex $pkg/$bin/amstex
+	ln -s pdftex $pkg/$bin/cslatex
+	ln -s pdftex $pkg/$bin/csplain
+	ln -s pdftex $pkg/$bin/eplain
+	ln -s pdftex $pkg/$bin/etex
+	ln -s pdftex $pkg/$bin/jadetex
+	ln -s pdftex $pkg/$bin/latex
+	ln -s pdftex $pkg/$bin/mex
+	ln -s pdftex $pkg/$bin/mllatex
+	ln -s pdftex $pkg/$bin/mltex
+	ln -s pdftex $pkg/$bin/pdfetex
+	ln -s pdftex $pkg/$bin/pdfcslatex
+	ln -s pdftex $pkg/$bin/pdfcsplain
+	ln -s pdftex $pkg/$bin/pdfjadetex
+	ln -s pdftex $pkg/$bin/pdflatex
+	ln -s pdftex $pkg/$bin/pdfmex
+	ln -s pdftex $pkg/$bin/pdfxmltex
+	ln -s pdftex $pkg/$bin/texsis
+	ln -s pdftex $pkg/$bin/utf8mex
+	ln -s pdftex $pkg/$bin/xmltex
+}

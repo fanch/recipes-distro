@@ -1,0 +1,15 @@
+n=which
+v=2.20
+s=infra-dev
+u=http://www.xs4all.nl/~carlo17/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	rm -f $pkg/$shr/info/dir
+}

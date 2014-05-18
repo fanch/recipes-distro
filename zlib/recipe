@@ -1,0 +1,13 @@
+n=zlib
+v=1.2.8
+s=infra
+u=http://zlib.net/current/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

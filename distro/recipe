@@ -1,0 +1,9 @@
+n=distro
+v=1.0.0
+s=infra
+u=https://github.com/selflex/$n/archive/$n-$v.tar.gz
+p=$n-$n-$v
+
+Pkg() {
+	sh ./install.sh root=$pkg
+}

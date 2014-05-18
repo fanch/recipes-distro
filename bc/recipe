@@ -1,0 +1,21 @@
+n=bc
+v=1.06.95
+s=infra-dev
+u=ftp://alpha.gnu.org/gnu/$n/$n-$v.tar.bz2
+
+Src() {
+	# https://bugs.gentoo.org/show_bug.cgi?id=349339
+	patch -Np0 -i $rcs/bc-1.06.95-void_uninitialized.patch
+
+	./configure --prefix=$usr \
+				--mandir=$shr/man \
+    			--infodir=$shr/info \
+    			--with-readline
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	rm -f $pkg/$shr/info/dir
+}

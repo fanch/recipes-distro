@@ -1,0 +1,20 @@
+n=upower
+v=0.99.0
+s=gnome
+u=http://upower.freedesktop.org/releases/$n-$v.tar.xz
+
+Src() {
+	patch -Np1 -i $rcs/create-dir-runtime.patch
+	patch -Np1 -i $rcs/fix-segfault.patch
+
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--localstatedir=$var \
+				--disable-static
+
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

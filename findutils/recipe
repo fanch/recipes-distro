@@ -1,0 +1,16 @@
+n=findutils
+v=4.4.2
+s=infra
+u=ftp://ftp.gnu.org/pub/gnu/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--localstatedir=$var/lib/locate
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	rm -f $pkg/$shr/info/dir
+}

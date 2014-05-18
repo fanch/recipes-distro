@@ -1,0 +1,16 @@
+n=gawk
+v=4.1.0
+s=infra-dev
+u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--without-libsigsegv
+	make
+}
+
+Pkg() {
+	make prefix=$pkg/$usr install
+
+	rm -f $pkg/$shr/info/dir
+}

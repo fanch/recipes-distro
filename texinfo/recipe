@@ -1,0 +1,17 @@
+n=texinfo
+v=5.2
+s=infra
+u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.xz
+
+Src() {
+	patch -p0 -i $rcs/texinfo-5.2-C-n-fix.patch
+
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	rm -f $pkg/$shr/info/dir
+}

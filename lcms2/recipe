@@ -1,0 +1,13 @@
+n=lcms2
+v=2.6
+s=supra-dev
+u=http://downloads.sourceforge.net/sourceforge/lcms/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install	
+}

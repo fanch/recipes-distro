@@ -1,0 +1,20 @@
+n=mozjs17
+v=17.0.0
+s=gnome
+u=http://ftp.mozilla.org/pub/mozilla.org/js/mozjs$v.tar.gz
+p=mozjs$v/js/src
+
+Src() {
+	./configure --prefix=$usr \
+    			--with-system-nspr \
+    			--enable-system-ffi \
+     			--enable-readline \
+     			--enable-threadsafe
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+	find $pkg/$lib/pkgconfig -type f -exec chmod -x {} +
+	find $pkg/$usr/include -type f -exec chmod -x {} +
+}

@@ -1,0 +1,15 @@
+n=sed
+v=4.2.2
+s=infra
+u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	rm -f $pkg/$shr/info/dir
+}

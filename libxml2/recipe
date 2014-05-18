@@ -1,0 +1,15 @@
+n=libxml2
+v=2.9.1
+s=infra
+u=ftp://ftp.xmlsoft.org/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--disable-static \
+				--with-history
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}
