@@ -3,7 +3,7 @@ _add() {
 	gtk-update-icon-cache -f -q -t $shr/icons/hicolor
 }
 
-del_() {
+_del() {
 	_add
 }
 

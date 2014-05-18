@@ -1,0 +1,11 @@
+_add() {
+	$bin/pango-querymodules >etc/pango/pango.modules
+}
+
+del_() {
+	rm $etc/pango/pango.modules
+}
+
+_upd() {
+	_add
+}

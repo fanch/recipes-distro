@@ -1,0 +1,52 @@
+n=krb5
+v=1.12.1
+s=infra
+u=http://web.mit.edu/kerberos/dist/$n/${v%.*}/$n-$v-signed.tar
+p=./
+
+Src() {
+	tar -xf $n-$v.tar.gz
+
+	cd $n-$v/src/build-tools
+	patch -Np2 -i $rcs/krb5-config_LDFLAGS.patch
+	cd ../
+
+	sed -i "/KRB5ROOT=/s/\/local//" util/ac_check_krb5.m4
+
+	export CFLAGS+=" -fPIC -fno-strict-aliasing -fstack-protector-all"
+	export CPPFLAGS+=" -I/usr/include/et"
+
+	./configure --prefix=$usr \
+				--sbindir=$bin \
+				--sysconfdir=$etc \
+				--localstatedir=$var/lib \
+				--enable-shared \
+				--with-system-et \
+				--with-system-ss \
+				--without-tcl \
+				--enable-dns-for-realm \
+				--without-system-verto
+	make
+}
+
+Pkg() {
+	cd $n-$v/src/
+
+	make DESTDIR=$pkg EXAMPLEDIR=$shr/doc/$n/examples install
+
+	install -m 644 plugins/kdb/ldap/libkdb_ldap/kerberos.{ldif,schema} \
+		$pkg/$shr/doc/${pkgname}/examples
+
+	install -dm 755 $pkg/$var/lib/krb5kdc
+	install -pm 644 config-files/kdc.conf $pkg/$var/lib/krb5kdc/kdc.conf
+
+	install -dm 755 $pkg/$etc
+	install -pm 644 config-files/krb5.conf $pkg/$etc/krb5.conf
+
+	install -dm 755 $pkg/$shr/aclocal
+	install -m 644 util/ac_check_krb5.m4 $pkg/$shr/aclocal
+
+	install -dm 755 $pkg/$lib/systemd/system
+	install -m 644 ../../krb5-{kadmind.service,kdc.service,kpropd.service,kpropd@.service,kpropd.socket} \
+      $pkg/$lib/systemd/system
+}

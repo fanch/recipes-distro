@@ -1,7 +1,7 @@
-n=patch
-v=2.7.1
-s=infra-dev
-u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.gz
+n=libssh2
+v=1.4.3
+s=infra
+u=http://www.libssh2.org/download/$n-$v.tar.gz
 
 Src() {
 	./configure --prefix=$usr

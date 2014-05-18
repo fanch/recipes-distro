@@ -4,7 +4,7 @@ _add() {
 	mkfontdir $shr/fonts/TTF
 }
 
-del_() {
+_del() {
 	_add
 }
 

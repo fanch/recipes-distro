@@ -29,12 +29,20 @@ del_() {
 	mkfontdir $shr/fonts/TTF
 }
 
-_upd() {
+upd_() {
 	pushd $etc/fonts/conf.d > /dev/null
 	for config in "${configs[@]}"; do
 		if [ ! -f ../conf.avail/${config} ]; then
 			ln -sf ../conf.avail/${config} .
 		fi
+	done
+	popd > /dev/null	
+}
+
+_upd() {
+	pushd $etc/fonts/conf.d > /dev/null
+	for config in "${configs[@]}"; do
+		ln -sf ../conf.avail/${config} .
 	done
 	popd > /dev/null
 

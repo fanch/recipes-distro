@@ -1,5 +1,5 @@
 n=kmod
-v=16
+v=17
 s=infra
 u=ftp://ftp.kernel.org/pub/linux/utils/kernel/$n/$n-$v.tar.xz
 

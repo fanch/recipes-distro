@@ -1,5 +1,5 @@
 n=sudo
-v=1.8.10p2
+v=1.8.10p3
 s=infra
 u=http://www.sudo.ws/sudo/dist/$n-$v.tar.gz
 

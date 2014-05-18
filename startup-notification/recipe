@@ -1,6 +1,6 @@
 n=startup-notification
 v=0.12
-s=supra
+s=gnome
 u=http://www.freedesktop.org/software/$n/releases/$n-$v.tar.gz
 
 Src() {

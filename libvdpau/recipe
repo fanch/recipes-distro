@@ -1,6 +1,6 @@
 n=libvdpau
 v=0.7
-s=supra
+s=media
 u=http://people.freedesktop.org/~aplattner/vdpau/$n-$v.tar.gz
 
 Src() {

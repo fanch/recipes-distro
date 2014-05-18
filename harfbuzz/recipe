@@ -1,5 +1,5 @@
 n=harfbuzz
-v=0.9.26
+v=0.9.28
 s=supra
 u=http://www.freedesktop.org/software/$n/release/$n-$v.tar.bz2
 

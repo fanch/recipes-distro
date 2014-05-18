@@ -21,11 +21,11 @@ _add() {
 		$etc/xml/catalog
 }
 
-del_() {
+_del() {
 	xmlcatalog --noout --del file://$etc/xml/docbook-xml $etc/xml/catalog
 }
 
 _upd() {
-	del_
+	_del
 	_add
 }

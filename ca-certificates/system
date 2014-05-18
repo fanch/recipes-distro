@@ -3,9 +3,15 @@ _add() {
 }
 
 del_() {
-	_add
+	local _backup=$(mktemp)
+	mv $etc/ca-certificates.conf ${_backup}
+	echo > $etc/ca-certificates.conf
+	update-ca-certificates --fresh >/dev/null 2>&1
+	mv ${_backup} $etc/ca-certificates.conf
+}
 
-	[[ -s $etc/ssl/certs/ca-certificates.crt ]] || rm -f $etc/ssl/certs/ca-certificates.crt	
+_del() {
+	[[ -s $etc/ssl/certs/ca-certificates.crt ]] || rm -f $etc/ssl/certs/ca-certificates.crt
 }
 
 _upd() {

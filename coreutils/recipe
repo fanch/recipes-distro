@@ -4,8 +4,10 @@ s=infra
 u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.xz
 
 Src() {
+	patch -p1 -i $rcs/coreutils-8.22-shuf-segfault.patch
+
 	./configure --prefix=$usr \
-				--without-gmp \
+				--with-openssl \
 				--enable-no-install-program=groups,kill,uptime
 	make
 }

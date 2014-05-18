@@ -27,4 +27,6 @@ Pkg() {
 	# remove references to build directory
 	sed -i -e 's#^SS_DIR=.*#SS_DIR="/usr/share/ss"#' $pkg/$bin/mk_cmds
 	sed -i -e 's#^ET_DIR=.*#ET_DIR="/usr/share/et"#' $pkg/$bin/compile_et
+
+	rm -f $pkg/$shr/info/dir
 }

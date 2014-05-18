@@ -1,5 +1,5 @@
 infodir=$shr/info
-filelist=(libgomp.info libquadmath.info)
+filelist=(libc.info{,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11})
 
 _add() {
 	[ -x $bin/install-info ] || return 0
@@ -16,5 +16,6 @@ del_() {
 }
 
 _upd() {
+	ldconfig -r .
 	_add
 }

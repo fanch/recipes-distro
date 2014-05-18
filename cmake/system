@@ -2,3 +2,11 @@ _add() {
 	update-mime-database $shr/mime &> /dev/null
 	[[ -x $bin/update-desktop-database ]] && update-desktop-database -q || true
 }
+
+_del() {
+	_add
+}
+
+_upd() {
+	_add
+}

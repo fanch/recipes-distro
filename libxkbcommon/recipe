@@ -1,12 +1,11 @@
 n=libxkbcommon
-v=0.4.1
+v=0.4.2
 s=supra
 u=http://xkbcommon.org/download/$n-$v.tar.xz
 
 Src() {
 	./configure --prefix=$usr \
-	  			--with-xkb-config-root=$shr/X11/xkb \
-	  			--disable-x11
+	  			--with-xkb-config-root=$shr/X11/xkb
 	make
 }
 

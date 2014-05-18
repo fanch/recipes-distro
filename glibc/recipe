@@ -42,4 +42,6 @@ Pkg() {
 	install -m644 $rcs/nscd.service $pkg/$lib/systemd/system
 
 	install -m755 $rcs/locale-gen $pkg/$bin
+
+	rm -f $pkg/$shr/info/dir
 }

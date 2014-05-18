@@ -8,8 +8,8 @@ Src() {
 				--enable-versioned-symbols \
 				--enable-ipv6 \
 				--disable-ldap \
-				--without-libssh2 \
-				--without-librtmp \
+				--with-gssapi \
+				--without-libidn \
 				--with-ca-bundle=$etc/ssl/certs/ca-certificates.crt
 	make
 }
