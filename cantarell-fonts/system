@@ -1,5 +1,5 @@
 _add() {
-	gio-querymodules $lib/gio/modules
+	fc-cache -f
 }
 
 _del() {

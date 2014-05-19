@@ -2,7 +2,7 @@ _add() {
 	gtk-update-icon-cache -q -t -f $shr/icons/gnome
 }
 
-del_() {
+_del() {
 	_add
 }
 

@@ -1,6 +1,6 @@
 n=shared-mime-info
 v=1.3
-s=gnome
+s=supra
 u=http://freedesktop.org/~hadess/$n-$v.tar.xz
 
 Src() {

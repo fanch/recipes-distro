@@ -2,7 +2,7 @@ _add() {
 	glib-compile-schemas $shr/glib-2.0/schemas
 }
 
-del_() {
+_del() {
 	_add
 }
 

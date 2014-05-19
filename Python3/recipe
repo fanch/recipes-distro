@@ -1,5 +1,5 @@
 n=Python3
-v=3.4.0
+v=3.4.1
 s=supra-dev
 u=http://www.python.org/ftp/python/$v/Python-$v.tar.xz
 p=Python-$v

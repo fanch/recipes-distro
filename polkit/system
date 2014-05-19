@@ -4,7 +4,7 @@ _add() {
 	passwd -l polkitd &>/dev/null
 }
 
-del_() {
+_del() {
 	if getent passwd polkitd >/dev/null; then userdel polkitd; fi
 	if getent group polkitd >/dev/null; then groupdel polkitd; fi
 }
