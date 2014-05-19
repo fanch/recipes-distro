@@ -4,7 +4,6 @@ s=supra-dev
 u=http://cache.ruby-lang.org/pub/$n/${v:0:3}/$n-$v.tar.bz2
 
 Src() {
-
 	./configure --prefix=$usr \
 				--sysconfdir=$etc \
 				--localstatedir=$var \
