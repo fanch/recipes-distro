@@ -36,6 +36,9 @@ Pkg() {
 	sed -e '1,3d' -e 's|/| |g' -e 's|\\| |g' -e 's|^|#|g' \
 	../$n-$v/localedata/SUPPORTED >> $pkg/$etc/locale.gen
 
+	# uncomment en_GB as default language
+	sed -i -e 's/#en_GB.UTF-8/en_GB.UTF-8/' $pkg/$etc/locale.gen
+
 	install -dm755 $pkg/$lib/{,locale,systemd/system}
 
 	install -m644 ../$n-$v/nscd/nscd.conf $pkg/$etc/nscd.conf

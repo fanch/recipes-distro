@@ -6,6 +6,8 @@ _add() {
 	for file in ${filelist[@]}; do
 		install-info $infodir/$file $infodir/dir 2> /dev/null
 	done
+
+	locale-gen
 }
 
 del_() {
