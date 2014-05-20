@@ -1,5 +1,5 @@
 n=weston
-v=1.4.92
+v=1.5.0
 s=supra
 u=http://wayland.freedesktop.org/releases/$n-$v.tar.xz
 
