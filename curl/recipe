@@ -1,5 +1,5 @@
 n=curl
-v=7.36.0
+v=7.37.0
 s=infra
 u=http://curl.haxx.se/download/$n-$v.tar.gz
 
