@@ -1,12 +1,11 @@
 n=(gcc gcc-libs)
 v=4.9.0
 s=(infra-dev infra)
-#u=ftp://gcc.gnu.org/pub/gcc/releases/$n-$v/$n-$v.tar.bz2
-_v=4.9-20140521
-u=ftp://gcc.gnu.org/pub/gcc/snapshots/${_v}/gcc-${_v}.tar.bz2
-p=$n-$_v
+u=ftp://gcc.gnu.org/pub/gcc/releases/$n-$v/$n-$v.tar.bz2
 
 Src() {
+	patch -Np1 -i $rcs/gcc-4.9.0-upstream_fixes-1.patch
+
 	# install x86_64 libraries into /lib
 	sed -i '/m64=/s/lib64/lib/' gcc/config/i386/t-linux64
 

@@ -1,10 +1,11 @@
 n=libcanberra
 v=0.30
 s=gnome
+g=git://git.0pointer.de/$n.git
 
 Src() {
 	if [ ! -d $n ]; then
-		git clone git://git.0pointer.de/$n.git
+		git clone $g
 	fi
 
 	cd $n

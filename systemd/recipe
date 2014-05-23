@@ -5,6 +5,8 @@ u=http://www.freedesktop.org/software/$n/$n-$v.tar.xz
 
 Src() {
 	patch -Np1 -i $rcs/systemd-212-compat-1.patch
+	# fails to build with gcc 4.9, flto"
+	export CFLAGS="${CFLAGS} -fno-lto"
 
 	./configure --prefix=$usr \
 				--sysconfdir=$etc \

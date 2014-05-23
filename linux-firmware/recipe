@@ -1,10 +1,12 @@
 n=linux-firmware
 v=20140518
+s=infra
 g=git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
-p=./
 
 Src() {
-	git clone $g
+	if [ ! -d $n ]; then
+		git clone $g
+	fi
 }
 
 Pkg() {

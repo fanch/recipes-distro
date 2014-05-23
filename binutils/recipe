@@ -4,12 +4,16 @@ s=infra-dev
 u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.bz2
 
 Src() {
+	patch -p1 -i $rcs/binutils-2.24-lto-testsuite.patch
+	patch -p1 -i $rcs/binutils-2.24-static-pie-hang.patch
+
 	mkdir ../build && cd ../build
 
 	../$n-$v/configure --prefix=$usr \
 					   --with-lib-path=$lib \
 		    		   --enable-shared \
-		    		   --disable-multilib
+		    		   --disable-multilib \
+					   --disable-werror 
 	make configure-host
 	make tooldir=$usr
 }

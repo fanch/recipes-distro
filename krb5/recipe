@@ -47,6 +47,6 @@ Pkg() {
 	install -m 644 util/ac_check_krb5.m4 $pkg/$shr/aclocal
 
 	install -dm 755 $pkg/$lib/systemd/system
-	install -m 644 ../../krb5-{kadmind.service,kdc.service,kpropd.service,kpropd@.service,kpropd.socket} \
+	install -m 644 $rcs/krb5-{kadmind.service,kdc.service,kpropd.service,kpropd@.service,kpropd.socket} \
       $pkg/$lib/systemd/system
 }
