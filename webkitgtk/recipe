@@ -1,14 +1,12 @@
 n=webkitgtk
 v=2.4.2
-s=supra
+s=gnome
 u=http://webkitgtk.org/releases/$n-$v.tar.xz
 
 Src() {
 	./configure --prefix=$usr \
 				--enable-introspection \
 				--enable-wayland-target \
-				--disable-geolocation \
-				--disable-glx \
 				--enable-egl \
 				--enable-gles2
 	make

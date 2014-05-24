@@ -1,0 +1,16 @@
+n=util-macros
+v=1.19.0
+s=x11-dev
+u=http://xorg.freedesktop.org/releases/individual/util/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+
+	install -m755 -d $pkg/$lib
+	mv $pkg/$shr/pkgconfig $pkg/$lib
+}

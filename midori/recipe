@@ -1,6 +1,6 @@
 n=midori
 v=0.5.8
-s=supra
+s=gnome
 u=http://midori-browser.org/downloads/"$n"_"$v"_all_.tar.bz2
 p=./
 

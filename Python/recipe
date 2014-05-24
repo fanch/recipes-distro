@@ -17,4 +17,6 @@ Src() {
 
 Pkg() {
 	make DESTDIR=$pkg install
+
+	mv $pkg/$bin/2to3{,-2.7}
 }
