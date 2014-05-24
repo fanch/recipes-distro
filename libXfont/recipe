@@ -1,0 +1,18 @@
+n=libXfont
+v=1.4.8
+s=x11
+u=http://xorg.freedesktop.org/releases/individual/lib/$n-$v.tar.bz2
+
+Src() {
+	patch -Np1 -i $rcs/libXfont-1.4.8-fontsproto_fix-1.patch
+	sed -i 's/fontsproto < 2.1.3/fontsproto/' configure
+
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--disable-static
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

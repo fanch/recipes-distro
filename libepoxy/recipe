@@ -1,0 +1,20 @@
+n=libepoxy
+v=1.2.1
+s=x11
+g=https://github.com/anholt/$n.git
+
+Src() {
+	if [ ! -d $n ]; then
+		git clone $g
+	fi
+
+	cd $n
+	./autogen.sh
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	cd $n
+	make DESTDIR=$pkg install
+}

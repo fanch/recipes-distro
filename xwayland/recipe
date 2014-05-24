@@ -1,0 +1,23 @@
+n=xwayland
+v=1.15.99.902
+s=x11
+u=http://xorg.freedesktop.org/releases/individual/xserver/xorg-server-$v.tar.bz2
+p=xorg-server-$v
+
+Src() {
+	./configure --prefix=$usr \
+				--enable-dri \
+				--enable-xwayland \
+				--disable-xorg \
+				--disable-xvfb \
+				--disable-xnest \
+				--disable-xquartz \
+				--disable-xwin \
+				--disable-docs \
+				--disable-devel-docs
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}
