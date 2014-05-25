@@ -4,6 +4,12 @@ s=infra
 u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.gz
 
 Src() {
+	for i in {1..18}; do
+		curl -o bash${v//.}-$(printf "%03d" $i) \
+			http://ftp.gnu.org/gnu/$n/$n-$v-patches/bash${v//.}-$(printf "%03d" $i)
+		patch -p0 -i bash${v//.}-$(printf "%03d" $i)
+	done
+
 	./configure --prefix=$usr \
 				--bindir=$bin \
 	  			--without-bash-malloc \
