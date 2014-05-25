@@ -2,7 +2,7 @@ n=texlive
 v=20130530
 s=supra-dev
 u=(ftp://tug.org/texlive/historic/2013/$n-$v-source.tar.xz
-   $n-$v-texmf.tar.xz)
+   https://downloads.sourceforge.net/selflexos/src/$n-$v-texmf.tar.xz)
 p=$n-$v-source
 
 Src() {
