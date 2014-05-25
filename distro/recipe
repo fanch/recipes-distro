@@ -1,5 +1,5 @@
 n=distro
-v=1.2.2
+v=1.2.4
 s=infra
 u=https://github.com/selflex/$n/archive/$n-$v.tar.gz
 p=$n-$n-$v
