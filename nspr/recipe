@@ -1,5 +1,5 @@
 n=nspr
-v=4.10.5
+v=4.10.6
 s=gnome
 u=ftp://ftp.mozilla.org/pub/mozilla.org/$n/releases/v$v/src/$n-$v.tar.gz
 
