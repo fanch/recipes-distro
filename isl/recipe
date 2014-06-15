@@ -1,5 +1,5 @@
 n=isl
-v=0.12.2
+v=0.13
 s=infra-dev
 u=http://isl.gforge.inria.fr/$n-$v.tar.bz2
 

@@ -1,5 +1,5 @@
 n=perl
-v=5.18.2
+v=5.20.0
 s=infra
 u=http://www.cpan.org/src/5.0/$n-$v.tar.bz2
 
