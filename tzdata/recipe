@@ -1,5 +1,5 @@
 n=tzdata
-v=2014c
+v=2014e
 s=infra
 u=http://www.iana.org/time-zones/repository/releases/$n$v.tar.gz
 p=./
