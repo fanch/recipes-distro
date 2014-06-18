@@ -1,5 +1,5 @@
 n=gettext
-v=0.18.3.2
+v=0.19.1
 s=infra-dev
 u=ftp://ftp.gnu.org/pub/gnu/$n/$n-$v.tar.gz
 

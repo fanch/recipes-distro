@@ -1,5 +1,5 @@
 n=alsa-lib
-v=1.0.27.2
+v=1.0.28
 s=media
 u=ftp://ftp.alsa-project.org/pub/lib/$n-$v.tar.bz2
 
