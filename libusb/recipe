@@ -1,5 +1,5 @@
 n=libusb
-v=1.0.18
+v=1.0.19
 s=gnome
 u=http://downloads.sourceforge.net/$n/$n-$v.tar.bz2
 
