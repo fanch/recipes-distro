@@ -35,5 +35,6 @@ Pkg() {
 
 	mv $pkg/lib $pkg/$usr
 
-	cp arch/x86/boot/bzImage $pkg/boot/vmlinuz
+	cp arch/x86/boot/bzImage $pkg/boot/vmlinuz-$v
+	ln -sf /boot/vmlinuz-$v $pkg/boot/vmlinuz
 }
