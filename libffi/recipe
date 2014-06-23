@@ -4,6 +4,7 @@ s=infra
 u=ftp://sourceware.org/pub/$n/$n-$v.tar.gz
 
 Src() {
+	patch -p1 -i $rcs/0001-Fix-paths-in-libffi.pc.in.patch
 	./configure --prefix=$usr
 	make
 }
