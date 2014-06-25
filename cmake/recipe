@@ -1,7 +1,7 @@
 n=cmake
 v=3.0.0
 s=supra-dev
-u=http://www.cmake.org/files/v2.8/$n-$v.tar.gz
+u=http://www.cmake.org/files/v3.0/$n-$v.tar.gz
 
 Src() {
 	./bootstrap --prefix=$usr \

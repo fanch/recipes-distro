@@ -1,5 +1,5 @@
 n=xwayland
-v=1.15.99.902
+v=1.15.99.903
 s=x11
 u=http://xorg.freedesktop.org/releases/individual/xserver/xorg-server-$v.tar.bz2
 p=xorg-server-$v

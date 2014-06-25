@@ -1,5 +1,5 @@
 n=gnutls
-v=3.3.2
+v=3.3.4
 s=supra
 u=ftp://ftp.gnutls.org/gcrypt/$n/v3.3/$n-$v.tar.xz
 

@@ -1,5 +1,5 @@
 n=gtk+
-v=3.13.1
+v=3.13.3
 s=supra
 u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
 

@@ -24,10 +24,10 @@ Pkg_llvm() {
       make DESTDIR=$pkg install
 
       mv $pkg/$lib/libLLVM-$v.so $src
-      rm $pkg/$lib/libLLVM-${v%.*}.so
+      mv $pkg/$lib/libLLVM-${v%.*}.so $src
 }
 
 Pkg_libllvm() {
-      install -D $src/libLLVM-$v.so $pkg/$lib/libLLVM-$v.so
-      ln -s libLLVM-$v.so $pkg/$lib/libLLVM-${v%.*}.so
+      install -d $pkg/$lib
+      cp -P $src/libLLVM-$v.so $src/libLLVM-${v%.*}.so $pkg/$lib
 }
