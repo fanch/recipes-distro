@@ -1,5 +1,5 @@
 n=Mesa
-v=10.2.1
+v=10.2.2
 s=supra
 u=ftp://ftp.freedesktop.org/pub/mesa/$v/MesaLib-$v.tar.bz2
 
@@ -10,6 +10,7 @@ Src() {
 				--sysconfdir=$etc \
 	  			--enable-gles2 \
 	  			--enable-gbm \
+	  			--enable-llvm-shared-libs \
 	  			--enable-gallium-gbm \
 	  			--enable-shared-glapi \
 	  			--disable-gallium-egl \
