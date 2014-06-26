@@ -1,6 +1,6 @@
 n=libtasn1
-v=3.4
-s=gnome
+v=3.6
+s=supra
 u=http://ftp.gnu.org/gnu/$n/$n-$v.tar.gz
 
 Src() {

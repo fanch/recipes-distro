@@ -1,5 +1,5 @@
 n=nettle
-v=3.0
+v=2.7.1
 s=supra
 u=http://ftp.gnu.org/gnu/$n/$n-$v.tar.gz
 
