@@ -1,7 +1,7 @@
-n=uhttpmock
-v=0.3.0
+n=appstream-glib
+v=0.2.1
 s=gnome-dev
-u=http://tecnocode.co.uk/downloads/uhttpmock/$n-$v.tar.xz
+u=http://people.freedesktop.org/~hughsient/$n/releases/$n-$v.tar.xz
 
 Src() {
 	./configure --prefix=$usr

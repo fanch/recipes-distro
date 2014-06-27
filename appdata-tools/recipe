@@ -1,5 +1,5 @@
 n=appdata-tools
-v=0.1.7
+v=0.1.8
 s=gnome-dev
 u=https://github.com/hughsie/$n/archive/${n//-/_}_${v//./_}.tar.gz
 p=$n-${n//-/_}_${v//./_}
