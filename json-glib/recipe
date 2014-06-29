@@ -1,5 +1,5 @@
 n=json-glib
-v=1.0.0
+v=1.0.2
 s=gnome
 u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
 

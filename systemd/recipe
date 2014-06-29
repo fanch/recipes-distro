@@ -4,6 +4,8 @@ s=infra
 u=http://www.freedesktop.org/software/$n/$n-$v.tar.xz
 
 Src() {
+	patch -Np1 -i $rcs/systemd-214-compat-1.patch
+
 	./configure --prefix=$usr \
 				--sysconfdir=$etc \
 				--sbindir=$bin \
