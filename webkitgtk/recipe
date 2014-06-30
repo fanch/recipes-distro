@@ -1,5 +1,5 @@
 n=webkitgtk
-v=2.4.2
+v=2.4.3
 s=gnome
 u=http://webkitgtk.org/releases/$n-$v.tar.xz
 
