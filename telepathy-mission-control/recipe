@@ -1,7 +1,7 @@
 n=telepathy-mission-control
-v=5.16.1
+v=5.16.2
 s=gnome
-u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
+u=http://telepathy.freedesktop.org/releases/$n/$n-$v.tar.gz
 
 Src() {
 	./configure --prefix=$usr \
