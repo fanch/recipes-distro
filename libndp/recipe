@@ -1,0 +1,13 @@
+n=libndp
+v=1.3
+s=gnome
+u=http://libndp.org/files/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

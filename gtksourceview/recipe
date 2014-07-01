@@ -1,5 +1,5 @@
 n=gtksourceview
-v=3.12.2
+v=3.13.1
 s=gnome
 u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
 
