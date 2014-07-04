@@ -4,7 +4,7 @@ s=infra-dev
 u=http://www.mpfr.org/mpfr-current/$n-$v.tar.xz
 
 Src() {
-	patch -p1 -i $rcs/mpfr-3.1.2-p8.patch
+	patch -p1 -i $rcs/mpfr-$v-p10.patch
 
 	./configure --prefix=$usr \
 				--enable-thread-safe \

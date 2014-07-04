@@ -1,11 +1,9 @@
 n=Python
-v=2.7.6
+v=2.7.8
 s=infra-dev
 u=http://www.python.org/ftp/python/$v/$n-$v.tar.xz
 
 Src() {
-	patch -Np1 -i $rcs/Python-2.7.6-readline_6_3-1.patch
-
 	./configure --prefix=$usr \
 				--enable-shared \
 				--with-system-expat \
