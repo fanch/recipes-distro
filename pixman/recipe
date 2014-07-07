@@ -1,5 +1,5 @@
 n=pixman
-v=0.32.4
+v=0.32.6
 s=supra
 u=http://xorg.freedesktop.org/releases/individual/lib/$n-$v.tar.bz2
 

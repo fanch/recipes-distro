@@ -1,5 +1,5 @@
 n=filesystem
-v=20140706
+v=20140707
 s=infra
 u=https://github.com/selflex/$n/archive/$n-$v.tar.gz
 p=$n-$n-$v
@@ -44,7 +44,9 @@ Pkg() {
 	install -D -m644 $src/$p/usb.conf usr/lib/modprobe.d/usb.conf
 	install -D -m755 $src/$p/locale.sh etc/profile.d/locale.sh
 
-	for f in os-release gshadow shadow ; do
+	for f in gshadow shadow ; do
 		install -m600 $src/$p/${f} etc/
 	done
+
+	install -Dm644 $src/$p/os-release usr/lib/os-release
 }

@@ -1,0 +1,2 @@
+#symlink from /etc/os-release to /usr/lib/os-release
+systemd-tmpfiles --create etc.conf

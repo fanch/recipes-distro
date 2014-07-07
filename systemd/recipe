@@ -4,6 +4,8 @@ s=infra
 u=http://www.freedesktop.org/software/$n/$n-$v.tar.xz
 
 Src() {
+	patch -Np1 < $rcs/0001-networkd-properly-track-addresses-when-first-added.patch
+
 	./configure --prefix=$usr \
 				--sysconfdir=$etc \
 				--sbindir=$bin \
@@ -22,6 +24,10 @@ Pkg() {
 
 	# Replace dialout with uucpsu
 	sed -i 's#GROUP="dialout"#GROUP="uucp"#g' $pkg/$lib/udev/rules.d/*.rules
+
+	# ensure proper permissions for /var/log/journal
+	chown root:systemd-journal $pkg/$var/log/journal
+	chmod 2755 $pkg/$var/log/journal
 
 	# fix pam file
 	sed 's|system-auth|system-login|g' -i $pkg/$etc/pam.d/systemd-user
