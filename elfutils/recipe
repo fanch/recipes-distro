@@ -1,6 +1,6 @@
 n=elfutils
 v=0.158
-s=supra
+s=infra
 u=https://fedorahosted.org/releases/e/l/$n/$v/$n-$v.tar.bz2
 
 Src() {
