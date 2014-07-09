@@ -1,5 +1,5 @@
 n=Mesa
-v=10.2.2
+v=10.2.3
 s=supra
 u=ftp://ftp.freedesktop.org/pub/mesa/$v/MesaLib-$v.tar.bz2
 

@@ -11,6 +11,7 @@ Src() {
 				--sbindir=$bin \
 				--localstatedir=$var \
 				--enable-introspection \
+				--enable-gtk-doc \
 				--with-sysvinit-path= \
 				--with-sysvrcnd-path= \
 				--with-firmware-path=$lib/firmware \
@@ -21,6 +22,9 @@ Src() {
 
 Pkg() {
 	make DESTDIR=$pkg install
+
+	# copy systemd pkgconfig files
+	cp -a src/compat-libs/*.pc $pkg/$lib/pkgconfig
 
 	# Replace dialout with uucpsu
 	sed -i 's#GROUP="dialout"#GROUP="uucp"#g' $pkg/$lib/udev/rules.d/*.rules
