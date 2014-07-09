@@ -23,9 +23,6 @@ Src() {
 Pkg() {
 	make DESTDIR=$pkg install
 
-	# copy systemd pkgconfig files
-	cp -a src/compat-libs/*.pc $pkg/$lib/pkgconfig
-
 	# Replace dialout with uucpsu
 	sed -i 's#GROUP="dialout"#GROUP="uucp"#g' $pkg/$lib/udev/rules.d/*.rules
 
