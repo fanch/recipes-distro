@@ -5,7 +5,7 @@ u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.bz2
 
 Src() {
 	patch -p1 -i $rcs/binutils-2.24-lto-testsuite.patch
-	patch -p1 -i $rcs/binutils-2.24-static-pie-hang.patch
+	patch -p1 -i $rcs/binutils-2.24-shared-pie.patch
 
 	mkdir ../build && cd ../build
 

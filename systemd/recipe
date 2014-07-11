@@ -12,6 +12,10 @@ Src() {
 				--localstatedir=$var \
 				--enable-introspection \
 				--enable-gtk-doc \
+				--enable-compat-libs \
+				--disable-audit \
+				--disable-ima \
+				--disable-kdbus \
 				--with-sysvinit-path= \
 				--with-sysvrcnd-path= \
 				--with-firmware-path=$lib/firmware \
