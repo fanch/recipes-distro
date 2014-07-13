@@ -5,7 +5,6 @@ u=ftp://gcc.gnu.org/pub/gcc/releases/$n-$v/$n-$v.tar.bz2
 
 Src() {
 	patch -Np1 -i $rcs/gcc-4.9.0-upstream_fixes-1.patch
-	patch -p1 -i $rcs/gcc-4.9-isl-0.13-hack.patch
 
 	# install x86_64 libraries into /lib
 	sed -i '/m64=/s/lib64/lib/' gcc/config/i386/t-linux64
