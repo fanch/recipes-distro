@@ -22,10 +22,7 @@ Src() {
 						 --enable-threads=posix \
 						 --enable-__cxa_atexit \
 						 --disable-multilib \
-						 --with-system-zlib \
-						 --enable-cloog-backend=isl \
-						 --disable-isl-version-check
-						 --disable-cloog-version-check
+						 --with-system-zlib
 	make
 }
 
