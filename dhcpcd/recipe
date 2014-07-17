@@ -1,5 +1,5 @@
 n=dhcpcd
-v=6.4.0
+v=6.4.2
 s=infra
 u=http://roy.marples.name/downloads/$n/$n-$v.tar.bz2
 
