@@ -1,5 +1,5 @@
 n=linux
-v=3.15.3
+v=3.15.6
 s=infra
 u=http://www.kernel.org/pub/linux/kernel/v3.x/$n-$v.tar.xz
 
