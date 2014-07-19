@@ -1,5 +1,5 @@
 n=libXi
-v=1.7.2
+v=1.7.4
 s=x11
 u=http://xorg.freedesktop.org/releases/individual/lib/$n-$v.tar.bz2
 
