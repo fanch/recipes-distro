@@ -1,5 +1,5 @@
 n=(poppler poppler-glib)
-v=0.26.1
+v=0.26.3
 s=(supra-dev supra)
 u=http://poppler.freedesktop.org/$n-$v.tar.xz
 
