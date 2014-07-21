@@ -1,5 +1,5 @@
 n=gstreamer
-v=1.2.4
+v=1.4.0
 s=media
 u=http://gstreamer.freedesktop.org/src/$n/$n-$v.tar.xz
 
