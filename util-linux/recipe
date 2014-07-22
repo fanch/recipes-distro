@@ -1,7 +1,7 @@
 n=util-linux
-v=2.24.2
+v=2.25
 s=infra
-u=ftp://ftp.kernel.org/pub/linux/utils/$n/v2.24/$n-$v.tar.xz
+u=ftp://ftp.kernel.org/pub/linux/utils/$n/v2.25/$n-$v.tar.xz
 
 Src() {
 	sed -i -e 's/\/sbin/\/bin/' configure
