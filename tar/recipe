@@ -1,5 +1,5 @@
 n=tar
-v=1.27.1
+v=1.28
 s=infra
 u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.xz
 
