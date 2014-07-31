@@ -1,5 +1,5 @@
 n=libdrm
-v=2.4.55
+v=2.4.56
 s=supra
 u=http://dri.freedesktop.org/$n/$n-$v.tar.bz2
 
