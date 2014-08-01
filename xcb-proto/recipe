@@ -1,5 +1,5 @@
 n=xcb-proto
-v=1.10
+v=1.11
 s=x11-dev
 u=http://xcb.freedesktop.org/dist/$n-$v.tar.bz2
 
