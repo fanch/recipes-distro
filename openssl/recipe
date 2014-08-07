@@ -1,20 +1,18 @@
 n=openssl
-v=1.0.1g
+v=1.0.1i
 s=infra
 u=http://www.openssl.org/source/$n-$v.tar.gz
 
 Src() {
 	patch -p0 -i $rcs/ca-dir.patch
 	patch -p0 -i $rcs/no-rpath.patch
-	patch -Np1 -i $rcs/openssl-1.0.1g-fix_parallel_build-1.patch
-	patch -Np1 -i $rcs/openssl-1.0.1g-fix_pod_syntax-1.patch
 
 	./Configure --prefix=$usr \
 				--openssldir=$etc/ssl \
 				--libdir=lib \
 				shared zlib \
 				linux-x86_64
-	make
+	make -j1
 }
 
 Pkg() {
