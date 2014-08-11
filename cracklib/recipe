@@ -1,5 +1,5 @@
 n=cracklib
-v=2.9.0
+v=2.9.1
 s=infra
 u=http://downloads.sourceforge.net/sourceforge/$n/$n-$v.tar.gz
 

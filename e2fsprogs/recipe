@@ -1,5 +1,5 @@
 n=e2fsprogs
-v=1.42.9
+v=1.42.11
 s=infra
 u=http://downloads.sourceforge.net/$n/$n-$v.tar.gz
 

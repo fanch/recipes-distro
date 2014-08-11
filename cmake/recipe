@@ -1,5 +1,5 @@
 n=cmake
-v=3.0.0
+v=3.0.1
 s=supra-dev
 u=http://www.cmake.org/files/v3.0/$n-$v.tar.gz
 
