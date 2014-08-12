@@ -1,5 +1,5 @@
 n=device-mapper
-v=2.02.108
+v=2.02.109
 s=infra
 u=ftp://sources.redhat.com/pub/lvm2/LVM2.$v.tgz
 p=LVM2.$v
