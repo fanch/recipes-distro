@@ -1,5 +1,5 @@
 n=krb5
-v=1.12.1
+v=1.12.2
 s=infra
 u=http://web.mit.edu/kerberos/dist/$n/${v%.*}/$n-$v-signed.tar
 p=./
