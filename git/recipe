@@ -1,5 +1,5 @@
 n=git
-v=2.0.4
+v=2.1.0
 s=infra-dev
 u=https://www.kernel.org/pub/software/scm/$n/$n-$v.tar.xz
 
