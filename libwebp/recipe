@@ -1,5 +1,5 @@
 n=libwebp
-v=0.4.0
+v=0.4.1
 s=supra
 u=http://webp.googlecode.com/files/$n-$v.tar.gz
 
