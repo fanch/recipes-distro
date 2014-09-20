@@ -1,0 +1,13 @@
+n=psmisc
+v=22.21
+s=infra
+u=http://downloads.sourceforge.net/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}
