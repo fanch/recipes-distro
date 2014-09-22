@@ -1,5 +1,5 @@
 n=libtasn1
-v=4.0
+v=4.2
 s=supra
 u=http://ftp.gnu.org/gnu/$n/$n-$v.tar.gz
 

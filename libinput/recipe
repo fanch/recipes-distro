@@ -1,5 +1,5 @@
 n=libinput
-v=0.5.0
+v=0.6.0
 s=supra
 u=http://freedesktop.org/software/$n/$n-$v.tar.xz
 

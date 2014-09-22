@@ -1,5 +1,5 @@
 n=util-linux
-v=2.25
+v=2.25.1
 s=infra
 u=ftp://ftp.kernel.org/pub/linux/utils/$n/v2.25/$n-$v.tar.xz
 

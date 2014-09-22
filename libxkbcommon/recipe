@@ -1,5 +1,5 @@
 n=libxkbcommon
-v=0.4.2
+v=0.4.3
 s=supra
 u=http://xkbcommon.org/download/$n-$v.tar.xz
 

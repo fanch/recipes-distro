@@ -1,5 +1,5 @@
 n=dracut
-v=037
+v=038
 s=infra-dev
 u=http://www.kernel.org/pub/linux/utils/boot/$n/$n-$v.tar.xz
 

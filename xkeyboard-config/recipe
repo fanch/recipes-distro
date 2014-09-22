@@ -1,5 +1,5 @@
 n=xkeyboard-config
-v=2.11
+v=2.12
 s=supra
 u=http://xorg.freedesktop.org/archive/individual/data/$n/$n-$v.tar.bz2
 

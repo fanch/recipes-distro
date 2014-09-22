@@ -1,5 +1,5 @@
 n=linux-firmware
-v=20140518
+v=20140922
 s=infra
 g=git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
 

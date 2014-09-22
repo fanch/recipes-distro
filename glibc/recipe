@@ -1,5 +1,5 @@
 n=glibc
-v=2.19
+v=2.20
 s=infra
 u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.xz
 p=./

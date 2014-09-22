@@ -1,5 +1,5 @@
 n=xz
-v=5.0.5
+v=5.0.7
 s=infra
 u=http://tukaani.org/$n/$n-$v.tar.gz
 

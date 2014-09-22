@@ -1,5 +1,5 @@
 n=libtirpc
-v=0.2.4
+v=0.2.5
 s=infra
 u=http://downloads.sourceforge.net/$n/$n-$v.tar.bz2
 

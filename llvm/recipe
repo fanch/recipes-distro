@@ -1,5 +1,5 @@
 n=(llvm libllvm)
-v=3.4.2
+v=3.5.0
 s=(supra-dev supra)
 u=http://llvm.org/releases/$v/$n-$v.src.tar.gz
 p=$n-$v.src

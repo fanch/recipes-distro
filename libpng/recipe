@@ -1,5 +1,5 @@
 n=libpng
-v=1.6.10
+v=1.6.13
 s=supra
 u=http://downloads.sourceforge.net/$n/$n-$v.tar.xz
 

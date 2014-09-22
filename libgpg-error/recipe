@@ -1,5 +1,5 @@
 n=libgpg-error
-v=1.13
+v=1.16
 s=infra
 u=ftp://ftp.gnupg.org/gcrypt/$n/$n-$v.tar.bz2
 
