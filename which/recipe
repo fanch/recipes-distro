@@ -1,6 +1,6 @@
 n=which
 v=2.20
-s=infra-dev
+s=infra
 u=http://www.xs4all.nl/~carlo17/$n/$n-$v.tar.gz
 
 Src() {

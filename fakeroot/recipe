@@ -1,6 +1,6 @@
 n=fakeroot
 v=1.20.1
-s=infra-dev
+s=infra
 u=http://ftp.debian.org/debian/pool/main/f/$n/"$n"_$v.orig.tar.bz2
 
 Src() {

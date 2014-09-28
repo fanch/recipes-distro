@@ -1,6 +1,6 @@
 n=XML-Parser
 v=2.41
-s=infra-dev
+s=infra
 u=http://search.cpan.org/CPAN/authors/id/T/TO/TODDR/$n-$v.tar.gz
 
 Src() {

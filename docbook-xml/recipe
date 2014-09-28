@@ -1,6 +1,6 @@
 n=docbook-xml
 v=4.5
-s=infra-dev
+s=infra
 u=(http://www.docbook.org/xml/$v/docbook-xml-$v.zip
    http://www.docbook.org/xml/4.4/docbook-xml-4.4.zip
    http://www.docbook.org/xml/4.3/docbook-xml-4.3.zip

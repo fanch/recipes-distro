@@ -1,6 +1,6 @@
 n=intltool
 v=0.50.2
-s=infra-dev
+s=infra
 u=http://edge.launchpad.net/$n/trunk/$v/+download/$n-$v.tar.gz
 
 Src() {

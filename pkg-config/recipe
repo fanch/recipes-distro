@@ -1,6 +1,6 @@
 n=pkg-config
 v=0.28
-s=infra-dev
+s=infra
 u=http://pkgconfig.freedesktop.org/releases/$n-$v.tar.gz
 
 Src() {

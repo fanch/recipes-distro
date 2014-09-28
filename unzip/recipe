@@ -1,6 +1,6 @@
 n=unzip
 v=6.0
-s=infra-dev
+s=infra
 u=http://downloads.sourceforge.net/infozip/unzip60.tar.gz
 p=${n}${v/./}
 

@@ -1,0 +1,8 @@
+n=man-pages
+v=3.73
+s=infra
+u=http://www.kernel.org/pub/linux/docs/$n/$n-$v.tar.xz
+
+Pkg() {
+	make prefix=$pkg/$usr install
+}

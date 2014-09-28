@@ -1,6 +1,6 @@
 n=bc
 v=1.06.95
-s=infra-dev
+s=infra
 u=ftp://alpha.gnu.org/gnu/$n/$n-$v.tar.bz2
 
 Src() {

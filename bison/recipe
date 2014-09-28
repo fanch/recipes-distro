@@ -1,6 +1,6 @@
 n=bison
 v=3.0.2
-s=infra-dev
+s=infra
 u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.xz
 
 Src() {

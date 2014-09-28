@@ -1,6 +1,6 @@
 n=bzip2
 v=1.0.6
-s=infra-dev
+s=infra
 u=http://www.bzip.org/$v/$n-$v.tar.gz
 
 Src() {

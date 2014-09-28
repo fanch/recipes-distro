@@ -1,6 +1,6 @@
 n=git
 v=2.1.1
-s=infra-dev
+s=infra
 u=https://www.kernel.org/pub/software/scm/$n/$n-$v.tar.xz
 
 Src() {

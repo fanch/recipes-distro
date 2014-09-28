@@ -1,6 +1,6 @@
 n=m4
 v=1.4.17
-s=infra-dev
+s=infra
 u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.xz
 
 Src() {

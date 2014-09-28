@@ -1,6 +1,6 @@
 n=diffutils
 v=3.3
-s=infra-dev
+s=infra
 u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.xz
 
 Src() {

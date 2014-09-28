@@ -1,6 +1,6 @@
 n=mpfr
 v=3.1.2
-s=infra-dev
+s=infra
 u=http://www.mpfr.org/mpfr-current/$n-$v.tar.xz
 
 Src() {

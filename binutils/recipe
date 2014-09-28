@@ -1,6 +1,6 @@
 n=binutils
 v=2.24
-s=infra-dev
+s=infra
 u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.bz2
 
 Src() {

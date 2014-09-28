@@ -1,6 +1,6 @@
 n=pcre
 v=8.35
-s=infra-dev
+s=infra
 u=ftp://ftp.csx.cam.ac.uk/pub/software/programming/$n/$n-$v.tar.bz2
 
 Src() {

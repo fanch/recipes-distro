@@ -1,6 +1,6 @@
 n=cpio
 v=2.11
-s=infra-dev
+s=infra
 u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.gz
 
 Src() {

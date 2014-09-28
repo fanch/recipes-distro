@@ -1,6 +1,6 @@
 n=check
 v=0.9.14
-s=infra-dev
+s=infra
 u=http://downloads.sourceforge.net/sourceforge/$n/$n-$v.tar.gz
 
 Src() {

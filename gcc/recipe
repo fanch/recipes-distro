@@ -1,6 +1,6 @@
-n=(gcc gcc-libs)
+n=gcc
 v=4.9.1
-s=(infra-dev infra)
+s=infra
 u=ftp://gcc.gnu.org/pub/gcc/releases/$n-$v/$n-$v.tar.bz2
 
 Src() {
@@ -23,7 +23,7 @@ Src() {
 	make
 }
 
-Pkg_gcc() {
+Pkg() {
 	cd gcc-build
 
 	make DESTDIR=$pkg install
@@ -32,11 +32,4 @@ Pkg_gcc() {
   	ln -s gcc $pkg/$bin/cc
 
 	rm -f $pkg/$shr/info/dir
-
-	mv $pkg/$lib/lib* $src
-}
-
-Pkg_gcc-libs() {
-	mkdir -p $pkg/$lib
-	mv $src/lib* $pkg/$lib
 }

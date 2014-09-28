@@ -1,6 +1,6 @@
-n=(llvm libllvm)
+n=llvm
 v=3.5.0
-s=(supra-dev supra)
+s=supra
 u=http://llvm.org/releases/$v/$n-$v.src.tar.gz
 p=$n-$v.src
 
@@ -20,14 +20,6 @@ Src() {
 	make REQUIRES_RTTI=1
 }
 
-Pkg_llvm() {
+Pkg() {
       make DESTDIR=$pkg install
-
-      mv $pkg/$lib/libLLVM-$v.so $src
-      mv $pkg/$lib/libLLVM-${v%.*}.so $src
-}
-
-Pkg_libllvm() {
-      install -d $pkg/$lib
-      cp -P $src/libLLVM-$v.so $src/libLLVM-${v%.*}.so $pkg/$lib
 }

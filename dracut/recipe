@@ -1,6 +1,6 @@
 n=dracut
 v=038
-s=infra-dev
+s=infra
 u=http://www.kernel.org/pub/linux/utils/boot/$n/$n-$v.tar.xz
 
 Src() {

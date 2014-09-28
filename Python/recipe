@@ -1,6 +1,6 @@
 n=Python
 v=2.7.8
-s=infra-dev
+s=infra
 u=http://www.python.org/ftp/python/$v/$n-$v.tar.xz
 
 Src() {

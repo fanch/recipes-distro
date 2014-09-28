@@ -1,6 +1,6 @@
 n=patch
 v=2.7.1
-s=infra-dev
+s=infra
 u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.gz
 
 Src() {

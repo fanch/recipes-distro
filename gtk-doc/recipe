@@ -1,6 +1,6 @@
 n=gtk-doc
 v=1.20
-s=infra-dev
+s=infra
 u=http://ftp.gnome.org/pub/gnome/sources/$n/$v/$n-$v.tar.xz
 
 Src() {

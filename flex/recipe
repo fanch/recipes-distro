@@ -1,6 +1,6 @@
 n=flex
 v=2.5.39
-s=infra-dev
+s=infra
 u=http://downloads.sourceforge.net/sourceforge/$n/$n-$v.tar.xz
 
 Src() {
