@@ -4,9 +4,6 @@ s=infra
 u=http://ftp.gnu.org/gnu/inetutils/$n-$v.tar.gz
 
 Src() {
-	# Fix an incompatibility with Glibc-2.16.0.
-	sed -i -e '/gets is a/d' lib/stdio.in.h
-
 	./configure --prefix=$usr \
 				--sysconfdir=$etc \
 				--localstatedir=$var \
