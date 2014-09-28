@@ -1,5 +1,5 @@
 n=man-db
-v=2.6.7.1
+v=2.7.0.2
 s=infra
 u=http://download-mirror.savannah.gnu.org/releases/$n/$n-$v.tar.xz
 
