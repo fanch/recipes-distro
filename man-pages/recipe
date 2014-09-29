@@ -5,4 +5,7 @@ u=http://www.kernel.org/pub/linux/docs/$n/$n-$v.tar.xz
 
 Pkg() {
 	make prefix=$pkg/$usr install
+
+	rm -f $pkg/$shr/man/man5/passwd.5
+	rm -f $pkg/$shr/man/man3/getspnam.3
 }
