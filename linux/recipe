@@ -14,7 +14,6 @@ Src() {
 	make prepare
 	yes "" | make config >/dev/null
 
-	make headers_check
 	make bzImage modules
 }
 
@@ -23,7 +22,6 @@ Pkg() {
 
 	mkdir -p $pkg/{lib/modules,lib/firmware,boot}
 
-	make INSTALL_HDR_PATH=$pkg/$usr headers_install
 	make INSTALL_MOD_PATH=$pkg modules_install
 
 	# remove firmware folder, build and source links

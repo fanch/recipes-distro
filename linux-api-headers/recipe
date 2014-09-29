@@ -1,0 +1,15 @@
+n=linux-api-headers
+v=3.16.3
+s=infra
+u=http://www.kernel.org/pub/linux/kernel/v3.x/linux-$v.tar.xz
+p=linux-$v
+
+Src() {
+	make mrproper
+	make headers_check
+}
+
+Pkg() {
+	make INSTALL_HDR_PATH=$pkg/$usr headers_install
+	find $pkg \( -name .install -o -name ..install.cmd \) -delete
+}
