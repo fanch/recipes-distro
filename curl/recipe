@@ -10,6 +10,7 @@ Src() {
 				--disable-ldap \
 				--with-gssapi \
 				--without-libidn \
+				--without-librtmp \
 				--with-ca-bundle=$etc/ssl/certs/ca-certificates.crt
 	make
 }

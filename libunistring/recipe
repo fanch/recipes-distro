@@ -1,6 +1,6 @@
 n=libunistring
-v=0.9.3
-s=supra-dev
+v=0.9.4
+s=infra
 u=ftp://ftp.gnu.org/pub/gnu/$n/$n-$v.tar.gz
 
 Src() {
@@ -10,4 +10,6 @@ Src() {
 
 Pkg() {
 	make DESTDIR=$pkg install
+
+	rm -f $pkg/$shr/info/dir
 }
