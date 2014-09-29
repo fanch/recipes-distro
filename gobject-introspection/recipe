@@ -4,6 +4,8 @@ s=infra
 u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
 
 Src() {
+	sed -i '1s|#!/usr/bin/env python$|&2|' giscanner/*.py
+
 	./configure --prefix=$usr \
 				--disable-static
 	make

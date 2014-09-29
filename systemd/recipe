@@ -30,7 +30,7 @@ Pkg() {
 
 	# ensure proper permissions for /var/log/journal
 	chown root:systemd-journal $pkg/$var/log/journal
-	chmod 2755 $pkg/$var/log/journal{,/remote}
+	chmod 2755 $pkg/$var/log/journal
 
 	# fix pam file
 	sed 's|system-auth|system-login|g' -i $pkg/$etc/pam.d/systemd-user

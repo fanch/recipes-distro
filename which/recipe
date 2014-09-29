@@ -1,7 +1,7 @@
 n=which
 v=2.20
 s=infra
-u=http://www.xs4all.nl/~carlo17/$n/$n-$v.tar.gz
+u=http://ftp.gnu.org/gnu/$n/$n-$v.tar.gz
 
 Src() {
 	./configure --prefix=$usr
