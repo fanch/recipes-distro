@@ -30,10 +30,13 @@ Pkg() {
 
 	# ensure proper permissions for /var/log/journal
 	chown root:systemd-journal $pkg/$var/log/journal
-	chmod 2755 $pkg/$var/log/journal
+	chmod 2755 $pkg/$var/log/journal{,/remote}
 
 	# fix pam file
 	sed 's|system-auth|system-login|g' -i $pkg/$etc/pam.d/systemd-user
+
+	# ship default policy to leave services disabled
+  	echo 'disable *' >$pkg/$lib/systemd/system-preset/99-default.preset
 
 	for i in halt poweroff reboot runlevel shutdown telinit; do
 	  ln -s systemctl $pkg/$bin/$i
