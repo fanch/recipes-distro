@@ -1,5 +1,5 @@
 n=dash
-v=0.5.7
+v=0.5.8
 s=infra
 u=http://gondor.apana.org.au/~herbert/$n/files/$n-$v.tar.gz
 
