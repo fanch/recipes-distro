@@ -4,6 +4,9 @@ s=infra
 u=http://www.freedesktop.org/software/$n/$n-$v.tar.xz
 
 Src() {
+	# flto breaks building inside chroot with gcc 4.9.1
+	sed -i 's/-flto/-fno-lto/' configure
+
 	./configure --prefix=$usr \
 				--sysconfdir=$etc \
 				--sbindir=$bin \
