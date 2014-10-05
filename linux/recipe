@@ -31,7 +31,7 @@ Pkg() {
 	# run depmod
 	depmod -b $pkg -F System.map $kv
 
-	mv $pkg/lib $pkg/$usr
+	mkdir $pkg/$usr; mv $pkg/lib $pkg/$usr/
 
 	cp arch/x86/boot/bzImage $pkg/boot/vmlinuz-$v
 	ln -sf /boot/vmlinuz-$v $pkg/boot/vmlinuz

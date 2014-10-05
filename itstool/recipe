@@ -1,6 +1,6 @@
 n=itstool
 v=2.0.2
-s=supra-dev
+s=infra
 u=http://files.itstool.org/itstool/$n-$v.tar.bz2
 
 Src() {
