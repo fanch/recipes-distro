@@ -1,5 +1,5 @@
 n=pcre
-v=8.35
+v=8.36
 s=infra
 u=ftp://ftp.csx.cam.ac.uk/pub/software/programming/$n/$n-$v.tar.bz2
 

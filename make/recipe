@@ -1,5 +1,5 @@
 n=make
-v=4.0
+v=4.1
 s=infra
 u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.bz2
 

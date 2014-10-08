@@ -1,5 +1,5 @@
 n=man-pages
-v=3.73
+v=3.74
 s=infra
 u=http://www.kernel.org/pub/linux/docs/$n/$n-$v.tar.xz
 
@@ -8,4 +8,7 @@ Pkg() {
 
 	rm -f $pkg/$shr/man/man5/passwd.5
 	rm -f $pkg/$shr/man/man3/getspnam.3
+
+	rm -f $pkg/$shr/man/man3/err.3
+	rm -f $pkg/$shr/man/man3/rand.3
 }
