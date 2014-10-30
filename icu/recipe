@@ -1,5 +1,5 @@
 n=icu
-v=53.1
+v=54.1
 s=supra
 u=http://download.icu-project.org/files/${n}4c/$v/${n}4c-${v//./_}-src.tgz
 p=$n/source

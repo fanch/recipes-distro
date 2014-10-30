@@ -1,0 +1,14 @@
+n=fribidi
+v=0.19.6
+s=supra-e19
+u=http://fribidi.org/download/$n-$v.tar.bz2
+
+Src() {
+	./configure --prefix=$usr \
+				--enable-malloc
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

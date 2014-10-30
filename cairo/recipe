@@ -4,13 +4,11 @@ s=supra
 u=http://cairographics.org/releases/$n-$v.tar.xz
 
 Src() {
-	# https://bugs.freedesktop.org/show_bug.cgi?id=77060
-	patch -Np1 -i $rcs/gcc-4.9-fix.patch
-
-	./autogen.sh --prefix=$usr \
-				 --disable-static \
-				 --enable-xlib \
-				 --enable-glesv2
+	CFLAGS="$CFLAGS -ffat-lto-objects" \
+	./configure --prefix=$usr \
+				--disable-static \
+				--enable-glesv2 \
+				--without-x
 	make
 }
 

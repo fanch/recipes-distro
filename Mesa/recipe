@@ -1,7 +1,7 @@
 n=Mesa
 v=10.3.0
 s=supra
-u=ftp://ftp.freedesktop.org/pub/mesa/$v/MesaLib-$v.tar.bz2
+u=ftp://ftp.freedesktop.org/pub/mesa/10.3/MesaLib-$v.tar.bz2
 
 Src() {
 	autoreconf -vfi
@@ -11,10 +11,10 @@ Src() {
 	  			--enable-gles2 \
 	  			--enable-gbm \
 	  			--enable-llvm-shared-libs \
-	  			--enable-gallium-gbm \
 	  			--enable-shared-glapi \
 	  			--disable-gallium-egl \
-	  			--with-egl-platforms=x11,wayland,drm \
+	  			--disable-glx \
+	  			--with-egl-platforms=wayland,drm \
 	  			--with-gallium-drivers=r300,r600,radeonsi,swrast,nouveau
 	make
 }

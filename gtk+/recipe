@@ -1,5 +1,5 @@
 n=gtk+
-v=3.13.9
+v=3.14.2
 s=supra
 u=http://ftp.gnome.org/pub/gnome/sources/$n/${v%.*}/$n-$v.tar.xz
 
@@ -7,7 +7,6 @@ Src() {
 	./configure --prefix=$usr \
 				--sysconfdir=$etc \
 				--localstatedir=$var \
-				--enable-x11-backend \
 				--enable-wayland-backend \
 				--disable-gtk2-dependency \
 				--disable-schemas-compile

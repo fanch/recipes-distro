@@ -1,6 +1,6 @@
 n=cmake
-v=3.0.1
-s=supra-dev
+v=3.0.2
+s=supra
 u=http://www.cmake.org/files/v3.0/$n-$v.tar.gz
 
 Src() {

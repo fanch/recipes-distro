@@ -1,10 +1,12 @@
 n=llvm
 v=3.5.0
 s=supra
-u=http://llvm.org/releases/$v/$n-$v.src.tar.gz
+u=http://llvm.org/releases/$v/$n-$v.src.tar.xz
 p=$n-$v.src
 
 Src() {
+      patch -Np1 -i $rcs/llvm-3.5.0-force-link-pass.o.patch
+
       sed -i 's:\$(PROJ_prefix)/docs/llvm:$(PROJ_prefix)/share/doc/llvm:' \
       Makefile.config.in
 

@@ -1,5 +1,5 @@
 n=gcc
-v=4.9.1
+v=4.9.2
 s=infra
 u=ftp://gcc.gnu.org/pub/gcc/releases/$n-$v/$n-$v.tar.bz2
 

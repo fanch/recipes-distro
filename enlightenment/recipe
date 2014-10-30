@@ -1,0 +1,16 @@
+n=enlightenment
+v=0.19.0
+s=supra-e19
+u=http://download.enlightenment.org/rel/apps/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--sysconfdir=$etc \
+				--enable-wayland-egl \
+				--enable-wayland-clients
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

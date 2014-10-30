@@ -1,5 +1,5 @@
 _add() {
-	glib-compile-schemas $shr/glib-2.0/schemas
+	update-mime-database $shr/mime > /dev/null
 }
 
 _del() {

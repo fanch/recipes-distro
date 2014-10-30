@@ -1,0 +1,18 @@
+n=efl
+v=1.11.2
+s=supra-e19
+u=http://download.enlightenment.org/rel/libs/$n/$n-$v.tar.gz
+
+Src() {
+	./configure --prefix=$usr \
+				--disable-static \
+				--enable-systemd \
+				--enable-wayland \
+				--enable-harfbuzz \
+				--with-x11=none
+	make
+}
+
+Pkg() {
+	make DESTDIR=$pkg install
+}

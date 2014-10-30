@@ -1,5 +1,5 @@
 n=libjpeg-turbo
-v=1.3.0
+v=1.3.1
 s=supra
 u=http://sourceforge.net/projects/$n/files/$v/$n-$v.tar.gz
 
@@ -11,6 +11,7 @@ Src() {
 }
 
 Pkg() {
-	make DESTDIR=$pkg docdir=$shr/doc/libjpeg-turbo \
+	make DESTDIR=$pkg \
+		 docdir=$shr/doc/libjpeg-turbo \
     	 exampledir=$shr/doc/libjpeg-turbo install
 }

@@ -1,6 +1,6 @@
 n=nasm
-v=2.11.01
-s=supra-dev
+v=2.11.05
+s=supra
 u=http://www.nasm.us/pub/nasm/releasebuilds/$v/$n-$v.tar.xz
 
 Src() {

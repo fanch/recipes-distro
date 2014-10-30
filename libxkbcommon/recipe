@@ -5,6 +5,7 @@ u=http://xkbcommon.org/download/$n-$v.tar.xz
 
 Src() {
 	./configure --prefix=$usr \
+				--disable-x11 \
 	  			--with-xkb-config-root=$shr/X11/xkb
 	make
 }

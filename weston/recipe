@@ -5,6 +5,7 @@ u=http://wayland.freedesktop.org/releases/$n-$v.tar.xz
 
 Src() {
 	./configure --prefix=$usr \
+				--with-cairo-glesv2 \
 	  			--enable-demo-clients-install
 	make
 }

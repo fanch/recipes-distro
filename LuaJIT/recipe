@@ -1,0 +1,12 @@
+n=LuaJIT
+v=2.0.3
+s=supra-e19
+u=http://luajit.org/download/LuaJIT-$v.tar.gz
+
+Src() {
+	make amalg PREFIX=$usr
+}
+
+Pkg() {
+	make DESTDIR=$pkg PREFIX=$usr install
+}

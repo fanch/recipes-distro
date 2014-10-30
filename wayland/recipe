@@ -5,7 +5,8 @@ u=http://wayland.freedesktop.org/releases/$n-$v.tar.xz
 
 Src() {
 	./configure --prefix=$usr \
-				--disable-static
+				--disable-static \
+				--disable-documentation
 	make
 }
 
