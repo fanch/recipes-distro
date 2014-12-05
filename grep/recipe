@@ -1,5 +1,5 @@
 n=grep
-v=2.20
+v=2.21
 s=infra
 u=ftp://ftp.gnu.org/gnu/$n/$n-$v.tar.xz
 
