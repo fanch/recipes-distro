@@ -1,5 +1,5 @@
 n=sqlite
-v=3080600
+v=3080703
 s=supra
 u=http://www.sqlite.org/2014/$n-autoconf-$v.tar.gz
 p=$n-autoconf-$v
