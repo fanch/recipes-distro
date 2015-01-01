@@ -1,5 +1,5 @@
 n=hwids
-v=20140602
+v=20141214
 s=infra
 u=https://github.com/gentoo/$n/archive/$n-$v.tar.gz
 p=$n-$n-$v

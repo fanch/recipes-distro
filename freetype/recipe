@@ -1,5 +1,5 @@
 n=freetype
-v=2.5.3
+v=2.5.4
 s=supra
 u=http://downloads.sourceforge.net/$n/$n-$v.tar.bz2
 
