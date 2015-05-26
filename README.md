@@ -1,4 +1,4 @@
-SelflexOS recipes
+GNU/Linux distribution recipes
 =======
 
-Recipe collection for building the SelflexOS.
+Recipe collection for building the GNU/Linux distribution.
